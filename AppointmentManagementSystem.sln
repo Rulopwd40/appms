@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppointmentManagementSystem.Server", "AppointmentManagementSystem.Server\AppointmentManagementSystem.Server.csproj", "{5A2FF1D0-151E-4689-8673-0A1DA31307DE}"
+EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "appointmentmanagementsystem.client", "appointmentmanagementsystem.client\appointmentmanagementsystem.client.esproj", "{473ED065-E512-4C49-972F-DD751D5ADBEF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5A2FF1D0-151E-4689-8673-0A1DA31307DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A2FF1D0-151E-4689-8673-0A1DA31307DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A2FF1D0-151E-4689-8673-0A1DA31307DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A2FF1D0-151E-4689-8673-0A1DA31307DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{473ED065-E512-4C49-972F-DD751D5ADBEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{473ED065-E512-4C49-972F-DD751D5ADBEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{473ED065-E512-4C49-972F-DD751D5ADBEF}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{473ED065-E512-4C49-972F-DD751D5ADBEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{473ED065-E512-4C49-972F-DD751D5ADBEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{473ED065-E512-4C49-972F-DD751D5ADBEF}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B8BC091E-D07E-4718-94CF-6B8368D9E929}
+	EndGlobalSection
+EndGlobal
