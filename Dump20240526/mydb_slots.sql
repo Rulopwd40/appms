@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `mydb` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
-USE `mydb`;
+CREATE DATABASE  IF NOT EXISTS `appms_bd` /*!40100 DEFAULT CHARACTER SET utf8mb3 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+USE `appms_bd`;
 -- MySQL dump 10.13  Distrib 8.0.36, for Win64 (x86_64)
 --
--- Host: localhost    Database: mydb
+-- Host: localhost    Database: appms_bd
 -- ------------------------------------------------------
 -- Server version	8.0.37
 
