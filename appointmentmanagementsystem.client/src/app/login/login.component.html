@@ -1,0 +1,9 @@
+<!--login.component.html-->
+<div class="form-container">
+    <form [formGroup]="loginform" (ngSubmit)="submitForm()">
+        <input placeholder="Username" type="text" formControlName="username">
+        <input placeholder="Password" type="password" formControlName="password">
+        <button class="login-button" type="submit">Login</button>
+    </form>
+    <button class="register-button" (click)="register()">Register</button>
+</div>
