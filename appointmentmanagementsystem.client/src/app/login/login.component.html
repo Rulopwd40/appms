@@ -1,9 +1,13 @@
 <!--login.component.html-->
 <div class="form-container">
+    <h1>Login</h1>
     <form [formGroup]="loginform" (ngSubmit)="submitForm()">
         <input placeholder="Username" type="text" formControlName="username">
-        <input placeholder="Password" type="password" formControlName="password">
-        <button class="login-button" type="submit">Login</button>
+        <input placeholder="Password" [type]="show ? 'text' : 'password'" formControlName="password">
+        <button class="btn-show-switch" type="button" (click)="showPassword()">{{show ? 'Show' : 'Hide'}}</button>
+        <div class="btn-container">
+            <button class="btn login-btn" type="submit">Login</button>
+            <button class="btn register-btn" (click)="register()">Register</button>
+        </div>
     </form>
-    <button class="register-button" (click)="register()">Register</button>
 </div>

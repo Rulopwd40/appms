@@ -16,7 +16,9 @@ export class LoginComponent {
 loginform = new FormGroup({
   username: new FormControl(''),
   password: new FormControl(''),
+  
 });
+show: boolean = false;
 constructor(private router: Router, private appDataService: AppDataService) {};
   submitForm(){
     let isAdmin=false;
@@ -32,5 +34,7 @@ constructor(private router: Router, private appDataService: AppDataService) {};
   register(){
     this.router.navigate(['register']);
   }
-  
+  showPassword(){
+    this.show = !this.show;
+  }
 }

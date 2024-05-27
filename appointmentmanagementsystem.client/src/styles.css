@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { height: 100%; 
+    background: conic-gradient(from 135deg at 50% 50%, #000000 -59.38deg, #003A64 115.22deg, #5B4261 187.22deg, #000000 300.62deg, #003A64 475.22deg);
+}
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+display: flex; 
+align-content: center;
+justify-content: center;}
