@@ -67,3 +67,4 @@ $RECYCLE.BIN/
 
 # Rider and VSCode shared index
 .idea/.idea.icls
+AppointmentManagementSystem.Server/.env
