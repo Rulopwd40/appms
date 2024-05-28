@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { User, UserService } from '../user.service';
 @Component({
   standalone:true,
   selector: 'app-register',
@@ -19,7 +20,7 @@ registerform= new FormGroup({
  email: new FormControl('', [Validators.required, Validators.email]),
 }
 )
-constructor(private router:Router){
+constructor(private router:Router, private userService:UserService){
 }
 passwordMatchValidator(control: FormControl): { [s: string]: boolean } | null {
   if (this.registerform) {
@@ -27,8 +28,25 @@ passwordMatchValidator(control: FormControl): { [s: string]: boolean } | null {
   }
   return null;
 }
-register(){
-  alert('Registrado'),
-  this.router.navigate(['login']);
+register() {
+  if (this.registerform.valid) {
+    const newUser: User = {
+      id_user: 0,
+      username: this.registerform.value.username!,
+      password: this.registerform.value.password!,
+      email: this.registerform.value.email!,
+      name: this.registerform.value.name!,
+      lastname: this.registerform.value.surname!,
+      is_admin: 0,
+    };
+    console.log('Datos del nuevo usuario:', newUser);
+    this.userService.addUser(newUser).subscribe(response => {
+      alert('Usuario registrado con éxito');
+      this.router.navigate(['login']);
+    }, error => {
+      console.error('Error al registrar el usuario', error);
+      alert('Error al registrar el usuario');
+    });
+  }
 }
 }

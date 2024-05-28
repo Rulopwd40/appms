@@ -22,5 +22,10 @@
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
     </ProjectReference>
   </ItemGroup>
+  
+  <ItemGroup>
+  <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="6.0.1" />
+  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.1" />
+</ItemGroup>
 
 </Project>

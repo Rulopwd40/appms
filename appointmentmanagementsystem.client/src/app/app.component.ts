@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { AppDataService } from './app-data.service';
 import { Router } from '@angular/router';
+import { User, UserService } from './user.service';
 interface WeatherForecast {
   date: string;
   temperatureC: number;
@@ -19,10 +20,12 @@ export class AppComponent implements OnInit {
   formData: any;
   username='';
   logged=false;
-  constructor(private http: HttpClient, private appDataService:AppDataService, private router:Router) {}
+  
+  users: User[] = [];
+  constructor(private http: HttpClient, private appDataService:AppDataService, private router:Router, private userservice:UserService) {}
 
   ngOnInit() {
-    this.getForecasts();
+    this.userservice.getUsers().subscribe(data => {this.users = data});
     this.appDataService.formData$.subscribe(data => {
       this.formData = data;
       this.username = data.username;
