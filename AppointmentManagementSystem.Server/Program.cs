@@ -12,6 +12,16 @@ builder.Services.AddDbContext<ADbContext>(options =>
     )
 );
 
+// Permite agregar origenes de los cuales recibir peticiones
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AngularHost",
+        builder => builder
+            .WithOrigins("http://localhost:4200")
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
+
 // Agregar servicios de controladores
 builder.Services.AddControllers();
 
@@ -23,6 +33,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseRouting();
+
+// Se lo agrega a la App
+app.UseCors("AngularHost");
 
 app.UseEndpoints(endpoints =>
 {

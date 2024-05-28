@@ -17,8 +17,8 @@ export interface User{
   providedIn: 'root'
 })
 export class UserService {
-
-  private apiUrl = 'https://localhost:5001/api/users';
+  // La direccion del controlador es /User (Fijarse codigo de UserController.cs)
+  private apiUrl = 'https://localhost:5001/api/User';
 
   constructor(private http: HttpClient) { }
 
