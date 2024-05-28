@@ -9,8 +9,6 @@ import { AppDataService } from '../app-data.service';
   imports: [ReactiveFormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
-  
-  
 })
 export class LoginComponent {
 loginform = new FormGroup({
