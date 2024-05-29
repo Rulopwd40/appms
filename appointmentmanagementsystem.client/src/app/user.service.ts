@@ -13,12 +13,14 @@ export interface User{
   is_admin: boolean;
 }
 
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
   // La direccion del controlador es /User (Fijarse codigo de UserController.cs)
-  private apiUrl = 'https://localhost:7072/api';
+  // El port puede variar suele ser en http 5298 o https 7072
+  private apiUrl = 'http://localhost:5298/api';
 
   constructor(private http: HttpClient) { }
 
@@ -28,5 +30,10 @@ export class UserService {
 
   addUser(user: User): Observable<User> {
     return this.http.post<User>(this.apiUrl + '/Users', user);//Hay que utilizar esto para el login donde /Users/login
+  }
+
+  login(user: any): Observable<User>{
+    console.log(user);
+    return this.http.post<User>(this.apiUrl + '/Users/login',user);
   }
 }

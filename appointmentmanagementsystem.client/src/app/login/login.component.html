@@ -2,7 +2,7 @@
 <div class="form-container">
     <h1>Login</h1>
     <form [formGroup]="loginform" (ngSubmit)="login()">
-        <input placeholder="Username" type="text" formControlName="username">
+        <input placeholder="Email" type="text" formControlName="username">
         <input placeholder="Password" [type]="show ? 'text' : 'password'" formControlName="password">
         <button class="btn-show-switch" type="button" (click)="showPassword()">{{show ? 'Show' : 'Hide'}}</button>
         <div class="btn-container">

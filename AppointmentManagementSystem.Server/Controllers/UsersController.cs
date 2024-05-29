@@ -32,7 +32,7 @@ public class UsersController : ControllerBase
     [HttpPost("login")]
     public IActionResult LoginUser(AuthRequest model)
     {
-        var user = _context.User.Where(d => d.email == model.email && d.password == model.password).FirstOrDefault();
+        var user = _context.User.Where(d => d.email == model.email  && d.password == model.password).FirstOrDefault();
         if(user == null) return BadRequest("Email or password wrong");
         else return Ok(new UserResponse
             {
