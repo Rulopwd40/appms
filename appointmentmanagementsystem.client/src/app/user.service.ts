@@ -4,13 +4,13 @@ import { Observable } from 'rxjs';
 import { Binary } from '@angular/compiler';
 
 export interface User{
-  id_user: number;
+  id_user?: number;
   username: string;
   password: string;
-  email:string;
-  name:string;
-  lastname:string;
-  is_admin:number;
+  email: string;
+  name: string;
+  lastname: string;
+  is_admin: boolean;
 }
 
 @Injectable({
@@ -18,7 +18,7 @@ export interface User{
 })
 export class UserService {
   // La direccion del controlador es /User (Fijarse codigo de UserController.cs)
-  private apiUrl = 'https://localhost:5001/api/User';
+  private apiUrl = 'https://localhost:7072/api/User';
 
   constructor(private http: HttpClient) { }
 

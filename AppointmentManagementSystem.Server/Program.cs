@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
+using AppointmentManagementSystem.Server.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,7 +18,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("AngularHost",
         builder => builder
-            .WithOrigins("http://localhost:4200")
+            .AllowAnyOrigin()
             .AllowAnyMethod()
             .AllowAnyHeader());
 });

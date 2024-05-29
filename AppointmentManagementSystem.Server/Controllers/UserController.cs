@@ -1,3 +1,4 @@
+using AppointmentManagementSystem.Server.Models;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -16,13 +17,13 @@ public class UserController : ControllerBase
     [HttpGet]
     public async Task<ActionResult<IEnumerable<User>>> GetUsuarios()
     {
-        return await _context.Users.ToListAsync();
+        return await _context.User.ToListAsync();
     }
 
     [HttpPost]
     public async Task<ActionResult<User>> PostUsuario(User user)
     {
-        _context.Users.Add(user);
+        _context.User.Add(user);
         await _context.SaveChangesAsync();
         return CreatedAtAction(nameof(GetUsuarios), new { id = user.id_user }, user);
     }
