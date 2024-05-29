@@ -3,12 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { AppDataService } from './app-data.service';
 import { Router } from '@angular/router';
 import { User, UserService } from './user.service';
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
-}
 
 @Component({
   selector: 'app-root',
@@ -16,7 +10,6 @@ interface WeatherForecast {
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  public forecasts: WeatherForecast[] = [];
   formData: any;
   username='';
   logged=false;
@@ -39,16 +32,5 @@ export class AppComponent implements OnInit {
     this.logged=false;
     this.router.navigate(['**']);
   }
-  getForecasts() {
-    this.http.get<WeatherForecast[]>('/weatherforecast').subscribe(
-      (result) => {
-        this.forecasts = result;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
-
   title = 'appointmentmanagementsystem.client';
 }

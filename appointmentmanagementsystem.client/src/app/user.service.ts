@@ -18,15 +18,15 @@ export interface User{
 })
 export class UserService {
   // La direccion del controlador es /User (Fijarse codigo de UserController.cs)
-  private apiUrl = 'https://localhost:7072/api/User';
+  private apiUrl = 'https://localhost:7072/api';
 
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>(this.apiUrl);
+    return this.http.get<User[]>(this.apiUrl + '/Users');
   }
 
   addUser(user: User): Observable<User> {
-    return this.http.post<User>(this.apiUrl, user);
+    return this.http.post<User>(this.apiUrl + '/Users', user);
   }
 }
