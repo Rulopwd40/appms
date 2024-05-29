@@ -38,16 +38,7 @@ export class AppComponent implements OnInit {
     this.logged=false;
     this.router.navigate(['**']);
   }
-  getForecasts() {
-    this.http.get<WeatherForecast[]>('/weatherforecast').subscribe(
-      (result) => {
-        this.forecasts = result;
-      },
-      (error) => {
-        console.error(error);
-      }
-    );
-  }
+  
 
   title = 'appointmentmanagementsystem.client';
 }
