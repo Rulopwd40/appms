@@ -18,7 +18,7 @@ loginform = new FormGroup({
 });
 show: boolean = false;
 constructor(private router: Router, private appDataService: AppDataService) {};
-  submitForm(){
+  login(){
     let isAdmin=false;
     if(this.loginform.value.username=="Tito"){
       isAdmin=true;
@@ -28,6 +28,9 @@ constructor(private router: Router, private appDataService: AppDataService) {};
     }
     else this.router.navigate(['user-view']);
     this.appDataService.sendFormData(this.loginform.value);
+    localStorage.setItem('User',this.loginform.value.username ?? '');
+    localStorage.setItem('Logged','true');
+    localStorage.setItem('isAdmin','${isAdmin}')
   }
   register(){
     this.router.navigate(['register']);
