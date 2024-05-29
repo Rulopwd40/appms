@@ -42,4 +42,5 @@ public class UsersController : ControllerBase
                 is_admin = user.is_admin
             });
     }
+    
 }

@@ -11,9 +11,7 @@ import {MatIconModule} from '@angular/material/icon';
 })
 export class UserMainComponent {
   username: string | null | undefined;
-  ngOnInit(){
-    this.username = localStorage.getItem('User');
-  }
+ 
   constructor(private router:Router){}
   logout(){
     this.router.navigate(['**'])

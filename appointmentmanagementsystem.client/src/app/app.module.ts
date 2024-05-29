@@ -7,9 +7,11 @@ import { AppComponent } from './app.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { UserService } from './user.service';
+import { UserMakeAppointmentComponent } from './user-make-appointment/user-make-appointment.component';
 @NgModule({
   declarations: [
     AppComponent,
+    UserMakeAppointmentComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule,
