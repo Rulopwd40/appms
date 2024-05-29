@@ -21,20 +21,19 @@ USE `appms_bd`;
 -- Table structure for table `user`
 --
 
-DROP TABLE IF EXISTS `user`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `user` (
-  `id_user` int NOT NULL,
-  `username` varchar(45) NOT NULL,
-  `password` varchar(225) NOT NULL,
-  `name` varchar(45) NOT NULL,
-  `lastname` varchar(45) NOT NULL,
-  `is_admin` binary(1) NOT NULL DEFAULT '0',
-  `email` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_user`),
-  UNIQUE KEY `username_UNIQUE` (`username`),
-  UNIQUE KEY `email_UNIQUE` (`email`)
+DROP TABLE IF EXISTS user;
+/*!40101 SET @saved_cs_client     = @@character_set_client*/;
+/*!50503 SET character_set_client = utf8mb4*/;
+CREATE TABLE user (
+  id_user int primary key auto_increment NOT NULL,
+  username varchar(45) NOT NULL,
+  password varchar(225) NOT NULL,
+  name varchar(45) NOT NULL,
+  lastname varchar(45) NOT NULL,
+  is_admin bool NOT NULL DEFAULT '0',
+  email varchar(45) NOT NULL,
+  UNIQUE KEY username_UNIQUE (username),
+  UNIQUE KEY email_UNIQUE (email)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
