@@ -17,4 +17,12 @@ namespace AppointmentManagementSystem.Server.Models
         public required string email { get; set; }
 
     }
+
+    public class UserResponse
+    {
+        public string username { get; set; }
+        public string name { get; set; }
+        public string lastname { get; set; }
+        public bool is_admin { get; set; }
+    }
 }
