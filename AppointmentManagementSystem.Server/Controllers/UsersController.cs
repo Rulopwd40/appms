@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 [ApiController]
 [Microsoft.AspNetCore.Mvc.Route("api/[controller]")]
-public class UserController : ControllerBase
+public class UsersController : ControllerBase
 {
-    private readonly ADbContext _context;
+    private readonly AppDbContext _context;
 
-    public UserController(ADbContext context)
+    public UsersController(AppDbContext context)
     {
         _context = context;
     }

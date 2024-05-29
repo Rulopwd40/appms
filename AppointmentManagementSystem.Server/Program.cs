@@ -6,7 +6,7 @@ using AppointmentManagementSystem.Server.Models;
 var builder = WebApplication.CreateBuilder(args);
 
 // Agregar la cadena de conexión y configuración de MySQL
-builder.Services.AddDbContext<ADbContext>(options =>
+builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
         new MySqlServerVersion(new Version(8, 0, 26))
