@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { MatToolbar } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
+import {MatIconModule} from '@angular/material/icon';
 @Component({
   standalone: true,
   selector: 'app-user-main',
   templateUrl: './user-main.component.html',
   styleUrl: './user-main.component.css',
-  imports: [MatToolbar],
+  imports: [MatToolbar,MatIconModule],
 })
 export class UserMainComponent {
   username: string | null | undefined;

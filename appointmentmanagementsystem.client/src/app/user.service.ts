@@ -27,6 +27,6 @@ export class UserService {
   }
 
   addUser(user: User): Observable<User> {
-    return this.http.post<User>(this.apiUrl + '/Users', user);
+    return this.http.post<User>(this.apiUrl + '/Users', user);//Hay que utilizar esto para el login donde /Users/login
   }
 }
