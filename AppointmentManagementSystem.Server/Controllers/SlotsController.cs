@@ -15,4 +15,6 @@ public class SlotsController : ControllerBase{
         _context = context;
     }
 
+    
+
 }

@@ -1,10 +1,5 @@
-<mat-toolbar class="toolbar">
-    {{username}}
-    <button (click)="logout()">Logout</button>
-</mat-toolbar>
-
-
-<div class="container">
+<app-toolbar></app-toolbar>
+<div class="container" (click)="makeappointment()">
     <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="event_available"></mat-icon>
     <p>Make an appointment</p>
 </div>

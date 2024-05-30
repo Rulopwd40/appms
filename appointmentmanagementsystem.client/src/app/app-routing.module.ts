@@ -4,12 +4,14 @@ import { LoginComponent } from './login/login.component';
 import { AdminMainComponent } from './admin-main/admin-main.component';
 import { UserMainComponent } from './user-main/user-main.component';
 import { RegisterComponent } from './register/register.component';
+import { UserMakeAppointmentComponent } from './user-make-appointment/user-make-appointment.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
   {path:'admin-view',component:AdminMainComponent},
   {path:'user-view',component:UserMainComponent},
   {path:'register',component:RegisterComponent},
+  {path:'makeappointment',component:UserMakeAppointmentComponent},
   {path:'**',redirectTo:'login'},
 ];
 

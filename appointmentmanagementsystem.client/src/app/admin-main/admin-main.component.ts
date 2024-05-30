@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { MatToolbar } from '@angular/material/toolbar';
 import { Router } from '@angular/router';
+import { ToolbarComponent } from '../toolbar/toolbar.component';
 
 @Component({
   standalone:true,
   selector: 'app-admin-main',
   templateUrl: './admin-main.component.html',
   styleUrl: './admin-main.component.css',
-  imports:[MatToolbar],
+  imports:[ToolbarComponent],
 })
 export class AdminMainComponent {
   username: string | null | undefined;

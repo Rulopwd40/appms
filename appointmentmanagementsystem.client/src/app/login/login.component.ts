@@ -39,6 +39,7 @@ constructor(private router: Router, private appDataService: AppDataService,priva
       }
       else this.router.navigate(['user-view']);
       this.appDataService.sendFormData(this.loginform.value);
+      console.log('User:', user.username),
       localStorage.setItem('User',user.username ?? '');
       localStorage.setItem('Logged','true');
       localStorage.setItem('isAdmin','${isAdmin}')

@@ -49,5 +49,8 @@ register() {
       alert('Error al registrar el usuario');
     });
   }
-}
+  }
+  cancel(){
+    this.router.navigate(['**']);
+  }
 }
