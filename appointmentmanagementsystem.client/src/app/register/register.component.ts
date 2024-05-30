@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { User, UserService } from '../user.service';
+import { __values } from 'tslib';
+import { identifierName } from '@angular/compiler';
 @Component({
   standalone:true,
   selector: 'app-register',
@@ -11,6 +13,7 @@ import { User, UserService } from '../user.service';
   imports:[ReactiveFormsModule,CommonModule],
 })
 export class RegisterComponent {
+  errorMessages: { [key: string]: string } = {};
   registerform= new FormGroup({
    username: new FormControl('',[Validators.required,Validators.minLength(4)]),
    password: new FormControl('', [Validators.required, Validators.minLength(6)]),
@@ -19,6 +22,7 @@ export class RegisterComponent {
    surname: new FormControl('', Validators.required),
    email: new FormControl('', [Validators.required, Validators.email]),
   }
+
 )
 constructor(private router:Router, private userService:UserService){
 }
@@ -28,6 +32,59 @@ passwordMatchValidator(control: FormControl): { [s: string]: boolean } | null {
   }
   return null;
 }
+//validadores
+fieldValidation(fieldName: string | null | undefined, touched: boolean | null | undefined): boolean {
+  const control = this.registerform.get(fieldName?.toString() || '');
+  if (control?.invalid && touched) {
+    switch(fieldName) {
+      case 'username':
+        if (control.errors?.['required']) {
+          this.errorMessages[fieldName?.toString() || ''] = 'Username is required.';
+        } else if (control.errors?.['minlength']) {
+          this.errorMessages[fieldName?.toString() || ''] = 'Username must be at least 4 characters long.';
+        }
+        break;
+      case 'password':
+        if (control.errors?.['minlength']) {
+          this.errorMessages[fieldName?.toString() || ''] = `${fieldName} must be at least ${control.errors?.['minlength'].requiredLength} characters long.`;
+        } else {
+          this.errorMessages[fieldName?.toString() || ''] = `${fieldName} is required.`;
+        }
+        break;
+      case 'confirmPassword':
+        if (control.errors?.['required']) {
+          this.errorMessages[fieldName?.toString() || ''] = 'Confirm Password is required.';
+        } else if (control.errors?.['passwordMismatch']) {
+          this.errorMessages[fieldName?.toString() || ''] = 'Passwords must match.';
+        }
+        break;
+      case 'name':
+        if (control.errors?.['required']) {
+          this.errorMessages[fieldName?.toString() || ''] = 'Name is required.';
+        }
+        break;
+      case 'surname':
+        if (control.errors?.['required']) {
+          this.errorMessages[fieldName?.toString() || ''] = 'Surname is required.';
+        }
+        break;
+      case 'email':
+        if (control.errors?.['required']) {
+          this.errorMessages[fieldName?.toString() || ''] = 'Email is required.';
+        } else if (control.errors?.['email']) {
+          this.errorMessages[fieldName?.toString() || ''] = 'Email must be valid.';
+        }
+        break;
+      default:
+        break;
+    }
+    return true;
+  }
+  // Si no hay error, limpiar el mensaje de error para este campo
+  delete this.errorMessages[fieldName?.toString() || ''];
+  return false;
+}
+
 
 register() {
   if (this.registerform.valid) {

@@ -1,51 +1,50 @@
 <div class="register-container">
-    <h1>Register</h1>
-    <form [formGroup]="registerform" (ngSubmit)="register()">
-      <div>
-        <input placeholder="Username" type="text" formControlName="username">
-        <div *ngIf="registerform.get('username')?.invalid && registerform.get('username')?.touched">
-          <small *ngIf="registerform.get('username')?.errors?.['required']">Username is required.</small>
-          <small *ngIf="registerform.get('username')?.errors?.['minlength']">Username must be at least 4 characters long.</small>
-        </div>
-      </div>
-      <br>
-      <div>
-        <input placeholder="Password" type="password" formControlName="password">
-        <div *ngIf="registerform.get('password')?.invalid && registerform.get('password')?.touched">
-          <small *ngIf="registerform.get('password')?.errors?.['required']">Password is required.</small>
-          <small *ngIf="registerform.get('password')?.errors?.['minlength']">Password must be at least 6 characters long.</small>
-        </div>
-      </div>
-      <div>
-        <input placeholder="Confirm Password" type="password" formControlName="confirmPassword">
-        <div *ngIf="registerform.get('confirmPassword')?.invalid && registerform.get('confirmPassword')?.touched">
-          <small *ngIf="registerform.get('confirmPassword')?.errors?.['required']">Confirm Password is required.</small>
-          <small *ngIf="registerform.get('confirmPassword')?.errors?.['passwordMismatch']">Passwords must match.</small>
-        </div>
-      </div>
-      <br>
-      <div>
-        <input placeholder="Name" type="text" formControlName="name">
-        <div *ngIf="registerform.get('name')?.invalid && registerform.get('name')?.touched">
-          <small *ngIf="registerform.get('name')?.errors?.['required']">Name is required.</small>
-        </div>
-      </div>
-      <div>
-        <input placeholder="Surname" type="text" formControlName="surname">
-        <div *ngIf="registerform.get('surname')?.invalid && registerform.get('surname')?.touched">
-          <small *ngIf="registerform.get('surname')?.errors?.['required']">Surname is required.</small>
-        </div>
-      </div>
-      <br>
-      <div>
-        <input placeholder="email@example.com" type="email" formControlName="email">
-        <div *ngIf="registerform.get('email')?.invalid && registerform.get('email')?.touched">
-          <small *ngIf="registerform.get('email')?.errors?.['required']">Email is required.</small>
-          <small *ngIf="registerform.get('email')?.errors?.['email']">Email must be valid.</small>
-        </div>
-      </div>
-      <br>
-      <button type="submit" [disabled]="registerform.invalid">Register</button>
-      <button type="button" (click)="cancel()">Cancel</button>
-    </form>
-  </div>
+  <h1>Register</h1>
+  <form [formGroup]="registerform" (ngSubmit)="register()">
+    <input [ngClass]="{'error-container': fieldValidation('username', registerform.get('username')?.touched)}"
+      placeholder="Username" type="text" formControlName="username">
+    <small *ngIf="errorMessages['username']">{{ errorMessages['username'] }}</small>
+
+    <input [ngClass]="{'error-container': fieldValidation('password', registerform.get('password')?.touched)}"
+      placeholder="Password" type="password" formControlName="password">
+    <small *ngIf="errorMessages['password']">{{ errorMessages['password'] }}</small>
+    <!--
+    <input placeholder="Password" type="password" formControlName="password">
+    <div *ngIf="registerform.get('password')?.invalid && registerform.get('password')?.touched">
+      <small *ngIf="registerform.get('password')?.errors?.['required']">Password is required.</small>
+      <small *ngIf="registerform.get('password')?.errors?.['minlength']">Password must be at least 6 characters
+        long.</small>
+    </div>
+    -->
+
+    <input
+      [ngClass]="{'error-container': fieldValidation('confirmPassword', registerform.get('confirmPassword')?.touched)}"
+      placeholder="Confirm Password" type="password" formControlName="confirmPassword">
+    <div *ngIf="fieldValidation('confirmPassword', registerform.get('confirmPassword')?.touched)">
+      <small *ngIf="errorMessages['confirmPassword']">{{ errorMessages['confirmPassword'] }}</small>
+    </div>
+
+    <input [ngClass]="{'error-container': fieldValidation('name', registerform.get('name')?.touched)}"
+      placeholder="Name" type="text" formControlName="name">
+    <div *ngIf="fieldValidation('name', registerform.get('name')?.touched)">
+      <small *ngIf="errorMessages['name']">{{ errorMessages['name'] }}</small>
+    </div>
+
+    <input [ngClass]="{'error-container': fieldValidation('surname', registerform.get('surname')?.touched)}"
+      placeholder="Surname" type="text" formControlName="surname">
+    <div *ngIf="fieldValidation('surname', registerform.get('surname')?.touched)">
+      <small *ngIf="errorMessages['surname']">{{ errorMessages['surname'] }}</small>
+    </div>
+
+    <input [ngClass]="{'error-container': fieldValidation('email', registerform.get('email')?.touched)}"
+      placeholder="email@example.com" type="email" formControlName="email">
+    <div *ngIf="fieldValidation('email', registerform.get('email')?.touched)">
+      <small *ngIf="errorMessages['email']">{{ errorMessages['email'] }}</small>
+    </div>
+
+    <div class="btn-container">
+      <button class="btn primary-btn" type="submit" [disabled]="registerform.invalid">Register</button>
+      <button class="btn secondary-btn" type="button" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+</div>

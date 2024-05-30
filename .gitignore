@@ -70,3 +70,4 @@ $RECYCLE.BIN/
 AppointmentManagementSystem.Server/.env
 # Node modules
 node_modules
+AppointmentManagementSystem.Server/appsettings.json
