@@ -11,4 +11,5 @@ export class SlotService {
 
   constructor(private http: HttpClient) { }
 
+  
 }
