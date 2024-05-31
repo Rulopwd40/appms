@@ -15,7 +15,10 @@ export class UserMainComponent {
   username: string ="";
   appointments?: UserAppointment[];
   dates:string[] = [];
+  
   constructor(private router:Router, private appointmentService:AppointmentsService){}
+  
+  
   ngOnInit(){
     const username= localStorage.getItem('User');
     if(username){
