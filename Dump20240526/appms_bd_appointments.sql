@@ -28,11 +28,10 @@ CREATE TABLE `appointments` (
   `id_appointment` int NOT NULL AUTO_INCREMENT,
   `date` date NOT NULL,
   `appointment_time` time NULL DEFAULT NULL,
-  `state` varchar(20) DEFAULT NULL,
   `id_user` int NOT NULL,
   PRIMARY KEY (`id_appointment`),
   KEY `fk_Appointments_User_idx` (`id_user`),
-  KEY `fk_Appointments_Slots1_idx` (`Slots_id_slots`),
+  UNIQUE KEY unique_appointment (date, appointment_time),
   CONSTRAINT `fk_Appointments_User` FOREIGN KEY (`id_user`) REFERENCES `user` (`id_user`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 /*!40101 SET character_set_client = @saved_cs_client */;

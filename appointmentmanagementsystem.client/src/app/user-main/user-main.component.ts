@@ -26,11 +26,11 @@ export class UserMainComponent {
       this.appointments = appointments;
       
       this.appointments.map( (appointment: UserAppointment) => 
-        appointment.date=this.split(appointment.date))
+        appointment.date=this.modifyDate(appointment.date))
     });
     
   }
-  split(date: Date): string {
+  modifyDate(date: Date): string {
     return date.toString().split("T")[0];
   }
   logout(){
@@ -40,5 +40,9 @@ export class UserMainComponent {
   makeappointment(){
     this.router.navigate(['makeappointment']);
   }
-  
+
+  //A desarrollar
+  deleteAppointment(event: Event){
+    
+  }
 }

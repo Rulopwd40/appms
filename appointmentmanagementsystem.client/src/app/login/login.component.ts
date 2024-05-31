@@ -35,9 +35,9 @@ constructor(private router: Router, private appDataService: AppDataService,priva
     this.userservice.login(this.userc).subscribe((user:UserR)=>{
     if (user){
       if(user.is_admin){
-        this.router.navigate(['admin-view'])
+        this.router.navigate(['admin-home'])
       }
-      else this.router.navigate(['user-view']);
+      else this.router.navigate(['user-home']);
       this.appDataService.sendFormData(this.loginform.value);
       console.log('User:', user.username),
       localStorage.setItem('User',user.username ?? '');

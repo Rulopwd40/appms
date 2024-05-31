@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { ToolbarComponent } from '../toolbar/toolbar.component';
+import { Router } from '@angular/router';
 
 @Component({
   standalone:true,
@@ -11,5 +12,8 @@ import { ToolbarComponent } from '../toolbar/toolbar.component';
 })
 export class UserMakeAppointmentComponent {
 availablehours: string[] = [];
-
+constructor(private router:Router){}
+cancel(){
+  this.router.navigate(['user-home']);
+}
 }

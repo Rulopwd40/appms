@@ -8,8 +8,8 @@ import { UserMakeAppointmentComponent } from './user-make-appointment/user-make-
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
-  {path:'admin-view',component:AdminMainComponent},
-  {path:'user-view',component:UserMainComponent},
+  {path:'admin-home',component:AdminMainComponent},
+  {path:'user-home',component:UserMainComponent},
   {path:'register',component:RegisterComponent},
   {path:'makeappointment',component:UserMakeAppointmentComponent},
   {path:'**',redirectTo:'login'},

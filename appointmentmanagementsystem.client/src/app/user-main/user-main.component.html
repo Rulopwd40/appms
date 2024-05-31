@@ -10,6 +10,7 @@
         <div class="appointment">
             <p>Date: {{appointment.date}}</p>
             <p>{{appointment.appointment_time}}</p>
+            <button type="button" (click)="deleteAppointment($event)"> x </button>
         </div>
         
     }
