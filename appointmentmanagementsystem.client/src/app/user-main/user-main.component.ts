@@ -4,6 +4,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { ToolbarComponent } from '../toolbar/toolbar.component';
 import { AppointmentsService } from '../appointments.service';
 import { UserAppointment } from '../models/models';
+
 @Component({
   standalone: true,
   selector: 'app-user-main',
@@ -11,6 +12,7 @@ import { UserAppointment } from '../models/models';
   styleUrl: './user-main.component.css',
   imports: [ToolbarComponent,MatIconModule],
 })
+
 export class UserMainComponent {
   username: string ="";
   appointments?: UserAppointment[];
