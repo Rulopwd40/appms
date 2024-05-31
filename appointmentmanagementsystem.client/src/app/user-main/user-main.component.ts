@@ -13,7 +13,8 @@ import { UserAppointment } from '../models/models';
 })
 export class UserMainComponent {
   username: string ="";
-  appointments?: UserAppointment[] = [];
+  appointments?: UserAppointment[];
+  dates:string[] = [];
   constructor(private router:Router, private appointmentService:AppointmentsService){}
   ngOnInit(){
     const username= localStorage.getItem('User');
@@ -23,7 +24,14 @@ export class UserMainComponent {
     
     this.appointmentService.getUserAppointments(this.username).subscribe((appointments: UserAppointment[]) => {
       this.appointments = appointments;
+      
+      this.appointments.map( (appointment: UserAppointment) => 
+        appointment.date=this.split(appointment.date))
     });
+    
+  }
+  split(date: Date): string {
+    return date.toString().split("T")[0];
   }
   logout(){
     this.router.navigate(['**'])

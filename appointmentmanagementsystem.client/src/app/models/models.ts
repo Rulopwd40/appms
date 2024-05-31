@@ -12,7 +12,7 @@ export interface TodayAppointment{
   appointment_time:string;
 }
 export interface UserAppointment{
-  date:Date;
+  date:any;
   appointment_time:string;
   
 }

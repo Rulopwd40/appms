@@ -18,7 +18,7 @@ export class ToolbarComponent {
     this.username = localStorage.getItem('User');
 
   }
-
+  
   logout(){
     this.router.navigate(['**']),
     localStorage.setItem('Logged','false');
