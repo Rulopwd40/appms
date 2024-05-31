@@ -1,7 +1,7 @@
 <app-toolbar></app-toolbar>
 
-
-<div class="calendar"></div>
+<p>HOLa</p>
+<mat-calendar #picker class="calendar" (selectedChange)="onDateSelected($event)"></mat-calendar>
 <div class="hours">
     @for(hour of availablehours;track hour){
         <div class="hour" data-hour="@hour">{{hour}}</div>

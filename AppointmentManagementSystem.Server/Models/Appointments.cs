@@ -14,7 +14,7 @@ namespace AppointmentManagementSystem.Server.Models
         
     }
     public class AppointmentResponse{
-        public List<TimeSpan> appointment_time {get;set;}
+        public TimeSpan appointment_time{get;set;}
 
     }
 }

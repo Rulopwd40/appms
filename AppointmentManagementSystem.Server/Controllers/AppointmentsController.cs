@@ -17,28 +17,20 @@ public class AppointmentsController : ControllerBase{
     }
 
     [HttpGet("today")]
-    public IActionResult getTodayAppointments(string username,string date){
-        if (string.IsNullOrEmpty(date))
-            {
-                return BadRequest("Fecha no proporcionada.");
-            }
+    public IActionResult getTodayAppointments(DateTime date){
 
-    DateTime parsedDate;
-        if (!DateTime.TryParse(date, out parsedDate))
-            {
-            return BadRequest("Formato de fecha no válido: " + date);
-            }
-    User user = (User)_context.User.Where( u => u.username == username );
-    var appointments = _context.Appointments.Where(d => d.date == parsedDate && d.id_user == user.id_user).ToList();
+    var appointments = _context.Appointments.Where(d => d.date == date).ToList();
         if (appointments == null || appointments.Count == 0)
             {   
                 return BadRequest("No hay citas disponibles para la fecha: " + date);
             }
 
-    var appointmentResponse = new AppointmentResponse
-    {
-        appointment_time = appointments.Select(a => a.appointment_time).ToList()
-    };
+    var appointmentResponse = appointments
+            .Select(a => new AppointmentResponse {
+                appointment_time = a.appointment_time
+            })
+            .ToList();
+
     return Ok(appointmentResponse);
     }
     

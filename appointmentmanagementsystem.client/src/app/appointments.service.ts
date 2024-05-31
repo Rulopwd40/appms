@@ -13,11 +13,15 @@ export class AppointmentsService {
   
   constructor(private http:HttpClient) { }
 
-  getTodayAppointments(username: string,date:string): Observable<TodayAppointment[]> {
-    let params = new HttpParams()
-      .set('username', username)
-      .set('date', date);
-    return this.http.get<TodayAppointment[]>(this.apiUrl + '/Appointments/today', { params: params });
+  getTodayAppointments(date:Date): Observable<any> {
+    // Convertir el objeto Date a una cadena en el formato 'YYYY-MM-DD'
+  let dateString = date.toISOString().split('T')[0];
+  
+  // Crear los parámetros de la solicitud
+  let params = new HttpParams().set('date', dateString);
+
+  // Realizar la solicitud GET con los parámetros
+  return this.http.get<any>(this.apiUrl + '/Appointments/today', { params: params });
   }
   getUserAppointments(username: string): Observable<any>{
   
