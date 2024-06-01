@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AppDataService } from '../app-data.service';
-import { UserService,User } from '../user.service';
+import { UserService} from '../user.service';
+import { User } from '../models/models';
 import { UserC,UserR } from '../models/models';
 @Component({
   standalone:true,

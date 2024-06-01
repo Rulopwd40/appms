@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { TodayAppointment, UserAppointment } from './models/models';
+import { Appointment, TodayAppointment, UserAppointment } from './models/models';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -24,7 +24,11 @@ export class AppointmentsService {
   return this.http.get<any>(this.apiUrl + '/Appointments/today', { params: params });
   }
   getUserAppointments(username: string): Observable<any>{
-  
     return this.http.get<any>(`${this.apiUrl}/Appointments/user?username=${username}`);
+  }
+
+  addAppointment(appointment: Appointment): Observable<any>{
+    console.log(appointment);
+    return this.http.post<any>(this.apiUrl + '/Appointments', appointment);
   }
 }

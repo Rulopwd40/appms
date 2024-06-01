@@ -13,6 +13,13 @@ namespace AppointmentManagementSystem.Server.Models
 
         
     }
+    public class AppointmentPost{
+        required public DateTime date {get;set;}
+
+        required public TimeSpan appointment_time{ get; set;}
+
+        required public string username {get; set;}
+    }
     public class AppointmentResponse{
         public TimeSpan appointment_time{get;set;}
 

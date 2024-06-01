@@ -2,16 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Binary } from '@angular/compiler';
-
-export interface User{
-  id_user?: number;
-  username: string;
-  password: string;
-  email: string;
-  name: string;
-  lastname: string;
-  is_admin: boolean;
-}
+import { User } from './models/models';
 
 
 @Injectable({

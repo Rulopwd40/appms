@@ -15,23 +15,51 @@ public class AppointmentsController : ControllerBase{
     {
         _context = context;
     }
+    [HttpGet]
+    public async Task<ActionResult<IEnumerable<Appointment>>> GetAppointments()
+    {
+        return await _context.Appointments.ToListAsync();
+    }
+
+    [HttpPost]
+    public async Task<ActionResult<AppointmentPost>> PostAppointment(AppointmentPost appointmentPost){
+         // Obtener Id Usuario
+    var user_id = _context.User
+                  .Where(d => d.username == appointmentPost.username)
+                  .Select(d => d.id_user)  // Selecciona solo el ID
+                  .FirstOrDefault();
+
+    if (user_id == 0)
+    {
+        return BadRequest("Usuario no encontrado.");
+    }
+
+    // Nuevo Appointment
+    var newAppointment = new Appointment
+    {
+        date = appointmentPost.date,
+        appointment_time = appointmentPost.appointment_time,
+        id_user = user_id,
+    };
+    _context.Appointments.Add(newAppointment);
+    await _context.SaveChangesAsync();
+
+    return CreatedAtAction(nameof(GetAppointments), new { id = newAppointment.id_appointment }, newAppointment);
+    }
+
 
     [HttpGet("today")]
     public IActionResult getTodayAppointments(DateTime date){
 
-    var appointments = _context.Appointments.Where(d => d.date == date).ToList();
-        if (appointments == null || appointments.Count == 0)
-            {   
-                return BadRequest("No hay citas disponibles para la fecha: " + date);
-            }
+     var appointments = _context.Appointments.Where(d => d.date == date).ToList();
 
     var appointmentResponse = appointments
-            .Select(a => new AppointmentResponse {
-                appointment_time = a.appointment_time
-            })
-            .ToList();
+        .Select(a => new AppointmentResponse {
+            appointment_time = a.appointment_time
+        })
+        .ToList();
 
-    return Ok(appointmentResponse);
+    return Ok(appointmentResponse.Count > 0 ? appointmentResponse : new List<AppointmentResponse>());
     }
     
     [HttpGet("user")]

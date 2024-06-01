@@ -1,11 +1,12 @@
 <app-toolbar></app-toolbar>
 
-<p>HOLa</p>
 <mat-calendar #picker class="calendar" (selectedChange)="onDateSelected($event)"></mat-calendar>
 <div class="hours">
-    @for(hour of availablehours;track hour){
-        <div class="hour" data-hour="@hour">{{hour}}</div>
-    }
+        @for(hour of availablehours;track hour;let index = $index){
+            <div  data-hour="@hour" id="hour_@index" (click)="selectHour(hour)" [ngClass]="{'hour': true, 'selected': hour === selectedHour}">{{hour}}</div>
+        }
+    
 </div>
 
 <button (click)="cancel()"> Cancel </button>
+<button (click)="accept()" [disabled]="!acceptvalid">Accept</button>

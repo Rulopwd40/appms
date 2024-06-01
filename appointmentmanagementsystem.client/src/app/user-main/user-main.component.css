@@ -1,5 +1,8 @@
 .container{
     background-color: #13131A ;
+    display: flex;
+    flex-direction: column;
+    color:white;
 }
 mat-icon{
     color:white;
@@ -7,4 +10,7 @@ mat-icon{
 
 .appointment{
     background-color: #373749;
+    margin: 5px;
+    border-radius:15px;
+    display:flex;
 }

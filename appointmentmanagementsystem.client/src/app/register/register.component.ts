@@ -2,7 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { User, UserService } from '../user.service';
+import { UserService } from '../user.service';
+import { User } from '../models/models';
 import { __values } from 'tslib';
 import { identifierName } from '@angular/compiler';
 @Component({

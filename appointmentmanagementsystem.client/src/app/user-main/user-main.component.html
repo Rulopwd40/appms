@@ -8,8 +8,11 @@
     <label>Your Appointments:</label>
     @for(appointment of appointments; track appointment){
         <div class="appointment">
-            <p>Date: {{appointment.date}}</p>
-            <p>{{appointment.appointment_time}}</p>
+            <div class="text">
+                <p>Date: {{appointment.date}}</p>
+                <p>{{appointment.appointment_time}}</p>
+            </div>
+            
             <button type="button" (click)="deleteAppointment($event)"> x </button>
         </div>
         
