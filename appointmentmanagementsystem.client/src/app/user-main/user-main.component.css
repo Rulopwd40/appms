@@ -3,14 +3,54 @@
     display: flex;
     flex-direction: column;
     color:white;
+    width: 420px;
+    height: 460px;
+    position: absolute;
 }
-mat-icon{
+.make-appointment-ico{
     color:white;
+    font-size:130px;
+    padding:90px;
+}
+.appointments{
+    position: absolute;
+    top:200px;
+    left:700px;
 }
 
-.appointment{
+.appointment {
     background-color: #373749;
     margin: 5px;
-    border-radius:15px;
-    display:flex;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 60px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.index-text{
+    background-color: #20202B;
+    width: 7.5%;
+    height: 100%;
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+    text-align: center;
+}
+
+.makeappointment{
+    background-color: #13131A ;
+    color:white;
+    width: 340px;
+    height: 400px;
+    position: absolute;
+    top:200px;
+    left:300px;
+    display:block;
+}
+
+.text{
+    margin-right:50%;
+    margin-left: 10px;
+    margin-top:5px;
 }

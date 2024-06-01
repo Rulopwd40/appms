@@ -1,20 +1,23 @@
 <app-toolbar></app-toolbar>
-<div class="container" (click)="makeappointment()">
-    <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="event_available"></mat-icon>
+<div class="makeappointment" (click)="makeappointment()">
+    <mat-icon class="make-appointment-ico" fontIcon="event_available"></mat-icon>
+    <br>
     <p>Make an appointment</p>
 </div>
-
+<div class ="appointments">
+<label>Your Appointments:</label>
 <div class="container">
-    <label>Your Appointments:</label>
-    @for(appointment of appointments; track appointment){
+        @for(appointment of appointments; track appointment; let index = $index){
         <div class="appointment">
+            <p class="index-text">{{index+1}}</p>
             <div class="text">
-                <p>Date: {{appointment.date}}</p>
+                <p >Date: {{appointment.date}}</p>
                 <p>{{appointment.appointment_time}}</p>
             </div>
             
-            <button type="button" (click)="deleteAppointment($event)"> x </button>
+            <mat-icon class="close" fontIcon="close" (click)="deleteAppointment($event)"></mat-icon>
         </div>
         
     }
+</div>
 </div>
