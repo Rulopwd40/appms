@@ -1,23 +1,33 @@
-<app-toolbar></app-toolbar>
-<div class="makeappointment" (click)="makeappointment()">
-    <mat-icon class="make-appointment-ico" fontIcon="event_available"></mat-icon>
-    <br>
-    <p>Make an appointment</p>
-</div>
-<div class ="appointments">
-<label>Your Appointments:</label>
-<div class="container">
-        @for(appointment of appointments; track appointment; let index = $index){
-        <div class="appointment">
-            <p class="index-text">{{index+1}}</p>
-            <div class="text">
-                <p >Date: {{appointment.date}}</p>
-                <p>{{appointment.appointment_time}}</p>
-            </div>
-            
-            <mat-icon class="close" fontIcon="close" (click)="deleteAppointment($event)"></mat-icon>
+<div class="container-usermain">
+    <app-toolbar></app-toolbar>
+    <div class="bg-main">
+        <div class="makeappointment container" (click)="makeappointment()">
+            <p class="make-appointment-text">Make an appointment</p>
+            <img class="make-appointment-icon" src="../../assets/icons/calendar.svg" alt="">
+            <!--<mat-icon class="" fontIcon="event_available"></mat-icon>-->
+
         </div>
-        
-    }
-</div>
+
+        <div class="appointments container">
+            <label>Your Appointments:</label>
+            <div class="scroll-container">
+
+                @for(appointment of appointments; track appointment; let index = $index){
+                <div class="appointment">
+                    <div class="index-text">
+                        <p>{{index+1}}</p>
+                    </div>
+                    <div class="text">
+                        <p>Date: {{appointment.date}}</p>
+                        <p>{{appointment.appointment_time}}</p>
+                    </div>
+                    <div class="close" (click)="deleteAppointment($event)">
+                        <mat-icon fontIcon="close"></mat-icon>
+                    </div>
+
+                </div>
+                }
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,9 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; 
-    background: conic-gradient(from 135deg at 50% 50%, #000000 -59.38deg, #003A64 115.22deg, #5B4261 187.22deg, #000000 300.62deg, #003A64 475.22deg);
+:root{
+    --bg-gradient-main:conic-gradient(from 135deg at 50% 50%, #000000 -59.38deg, #003A64 115.22deg, #5B4261 187.22deg, #000000 300.62deg, #003A64 475.22deg);
+    --bg-dark-main:#13131A;
+    --bg-appointment-dark:#373749;
+    --bg-container-dark: #272735;
+    --bg-container-dark1:#191A2C;
+    --bg-container-dark2:#20232F;
 }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+
+html, body {
+    margin: 0;
+    padding: 0;
+    display: flex; 
+    height: 100%;
+    width: 100%;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background: var(--bg-gradient-main) ;
+}
+app-root {
+    height: 100%;
+    width: 100%;
+}
+/*
+body { 
+margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
 display: flex; 
 align-content: center;
 justify-content: center;}
+*/
