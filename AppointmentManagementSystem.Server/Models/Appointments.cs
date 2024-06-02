@@ -24,4 +24,10 @@ namespace AppointmentManagementSystem.Server.Models
         public TimeSpan appointment_time{get;set;}
 
     }
+
+    public class UserAppointment{
+         required public DateTime date {get;set;}
+
+        required public TimeSpan appointment_time{ get; set;}
+    }
 }

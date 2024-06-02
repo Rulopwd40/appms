@@ -47,7 +47,9 @@ export class UserMainComponent {
   }
 
   //A desarrollar
-  deleteAppointment(event: Event){
-    
-  }
+  deleteAppointment(appointment:UserAppointment){
+    console.log(appointment)
+    this.appointmentService.deleteAppointment(appointment).subscribe(() => {
+    this.ngOnInit();
+  })};
 }

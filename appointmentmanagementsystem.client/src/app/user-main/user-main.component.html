@@ -21,7 +21,7 @@
                         <p>Date: {{appointment.date}}</p>
                         <p>{{appointment.appointment_time}}</p>
                     </div>
-                    <div class="close" (click)="deleteAppointment($event)">
+                    <div class="close" (click)="deleteAppointment(appointment)">
                         <mat-icon fontIcon="close"></mat-icon>
                     </div>
 

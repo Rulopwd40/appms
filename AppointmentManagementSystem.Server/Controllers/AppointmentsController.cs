@@ -70,8 +70,25 @@ public class AppointmentsController : ControllerBase{
         }
         var appointments = _context.Appointments.Where(d => d.id_user == user.id_user).ToList();
         if(appointments == null || appointments.Count==0){
-            return BadRequest("No hay citas disponibles para el usuario: " + username);
+            return Ok(appointments);
         }
         return Ok(appointments);
     }
+
+    [HttpDelete("delete")]
+public async Task<IActionResult> DeleteAppointment([FromQuery] DateTime date, [FromQuery] TimeSpan appointment_time)
+{
+    var appointment = await _context.Appointments
+        .FirstOrDefaultAsync(a => a.date == date && a.appointment_time == appointment_time);
+
+    if (appointment == null)
+    {
+        return NotFound(new { message = "Appointment not found" });
+    }
+
+    _context.Appointments.Remove(appointment);
+    await _context.SaveChangesAsync();
+
+    return NoContent();
+}
 }

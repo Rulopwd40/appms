@@ -31,4 +31,12 @@ export class AppointmentsService {
     console.log(appointment);
     return this.http.post<any>(this.apiUrl + '/Appointments', appointment);
   }
+  
+  deleteAppointment(userAppointment: UserAppointment): Observable<any> {
+    const params = new HttpParams()
+      .set('date', userAppointment.date.toString())
+      .set('appointment_time', userAppointment.appointment_time.toString());
+  
+    return this.http.delete<any>(`${this.apiUrl}/Appointments/delete`, { params });
+  }
 }
