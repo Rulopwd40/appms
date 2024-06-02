@@ -1,6 +1,15 @@
 <app-toolbar></app-toolbar>
-<div>
+<div class="next-appointment">
     <p>Next appointment</p>
-    <br>
-    <p></p>    
+    <p>{{nextAppointment?.appointment_time}}</p>
+    <p>{{nextAppointment?.name}} {{nextAppointment?.lastname}}</p>
+
+</div>
+
+<div class="today-appointment">
+    @for(appointment of todayAppointments;track appointment;let index = $index){
+        <p>{{index+1}}</p>
+        <p>{{appointment.appointment_time}}</p>
+        <p>{{appointment.name}} {{appointment.lastname}}</p>
+    }
 </div>

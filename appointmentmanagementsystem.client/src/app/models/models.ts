@@ -11,6 +11,11 @@ export interface UserC{
 export interface TodayAppointment{
   appointment_time:string;
 }
+export interface TodayUserAppointment{
+  appointment_time:string;
+  name:string;
+  lastname:string;
+}
 export interface UserAppointment{
   date:any;
   appointment_time:string;

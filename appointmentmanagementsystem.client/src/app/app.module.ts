@@ -9,6 +9,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { UserService } from './user.service';
 import { UserMakeAppointmentComponent } from './user-make-appointment/user-make-appointment.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { DatePipe } from '@angular/common'; 
 @NgModule({
   declarations: [
     AppComponent,

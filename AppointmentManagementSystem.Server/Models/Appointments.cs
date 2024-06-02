@@ -30,4 +30,10 @@ namespace AppointmentManagementSystem.Server.Models
 
         required public TimeSpan appointment_time{ get; set;}
     }
+
+    public class AppointmentUserResponse{
+        required public TimeSpan appointment_time{get;set;}
+        required public string name{get;set;}
+        required public string lastname{get;set;}
+    }
 }

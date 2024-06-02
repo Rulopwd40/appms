@@ -48,20 +48,26 @@ public class AppointmentsController : ControllerBase{
     }
 
 
-    [HttpGet("today")]
-    public IActionResult getTodayAppointments(DateTime date){
-
-     var appointments = _context.Appointments.Where(d => d.date == date).ToList();
-
-    var appointmentResponse = appointments
-        .Select(a => new AppointmentResponse {
-            appointment_time = a.appointment_time
-        })
+[HttpGet("today")]
+public IActionResult getTodayAppointments(DateTime date)
+{
+    var appointments = _context.Appointments
+        .Where(d => d.date == date)
+        .Join(
+            _context.User,
+            appointment => appointment.id_user,
+            user => user.id_user,
+            (appointment, user) => new AppointmentUserResponse
+            {
+                appointment_time = appointment.appointment_time,
+                name = user.name,
+                lastname = user.lastname
+            }
+        )
         .ToList();
 
-    return Ok(appointmentResponse.Count > 0 ? appointmentResponse : new List<AppointmentResponse>());
-    }
-    
+    return Ok(appointments.Count > 0 ? appointments : new List<AppointmentUserResponse>());
+}
     [HttpGet("user")]
     public IActionResult getUserAppointments(string username){
         var user = _context.User.Where( u => u.username == username ).FirstOrDefault();
