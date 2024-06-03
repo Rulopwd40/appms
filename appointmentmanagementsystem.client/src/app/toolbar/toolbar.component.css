@@ -37,3 +37,26 @@ button:hover{
     margin-left: auto;
 
 }
+
+.sidenav-container{
+    background-color: #13131A;
+    height: 100%;
+    width: 300px;
+    position:absolute;
+    
+}
+.sidenav-item{
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap:10px;
+    border-bottom:2px white solid ;
+    cursor: pointer;
+}
+
+.modal{
+    background-color:#ddddff;
+    width: 100px;
+    height: 100px;
+}

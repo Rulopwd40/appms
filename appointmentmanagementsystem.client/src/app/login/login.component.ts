@@ -43,7 +43,7 @@ constructor(private router: Router, private appDataService: AppDataService,priva
       console.log('User:', user.username),
       localStorage.setItem('User',user.username ?? '');
       localStorage.setItem('Logged','true');
-      localStorage.setItem('isAdmin','${isAdmin}')
+      localStorage.setItem('isAdmin',`${user.is_admin}`)
     }
   }
   )

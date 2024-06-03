@@ -5,6 +5,9 @@ import { AdminMainComponent } from './admin-main/admin-main.component';
 import { UserMainComponent } from './user-main/user-main.component';
 import { RegisterComponent } from './register/register.component';
 import { UserMakeAppointmentComponent } from './user-make-appointment/user-make-appointment.component';
+import { UsersComponent } from './users/users.component';
+import { AppointmentsComponent } from './appointments/appointments.component';
+import { AccountComponent } from './account/account.component';
 
 const routes: Routes = [
   {path:'login',component:LoginComponent},
@@ -12,7 +15,12 @@ const routes: Routes = [
   {path:'user-home',component:UserMainComponent},
   {path:'register',component:RegisterComponent},
   {path:'makeappointment',component:UserMakeAppointmentComponent},
+  {path:'users',component:UsersComponent},
+  {path:'appointments',component:AppointmentsComponent},
+  {path:'account',component:AccountComponent},
+  {path:'',redirectTo:'login',pathMatch:'full'},
   {path:'**',redirectTo:'login'},
+  
 ];
 
 @NgModule({
