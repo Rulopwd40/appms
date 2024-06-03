@@ -56,7 +56,11 @@ button:hover{
 }
 
 .modal{
-    background-color:#ddddff;
-    width: 100px;
+    background-color:#13131A;
+    width: 700px;
     height: 100px;
+}
+
+.close-button{
+    cursor:pointer;
 }

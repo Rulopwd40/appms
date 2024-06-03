@@ -32,6 +32,7 @@ export class ToolbarComponent {
   ngOnInit(){
     this.username = localStorage.getItem('User');
     this.menu = "";
+    this.tab='';
     console.log(localStorage.getItem('isAdmin'))
   }
   logout(){
@@ -52,13 +53,14 @@ export class ToolbarComponent {
       }
     }
   }
-  //A desarrollar
   navClick(nav:Tab){
     this.tab = nav;
-  
   }
 
   selectedComponent(){
     return this.components[this.tab];
+  }
+  closeModal(){
+    this.tab='';
   }
 }

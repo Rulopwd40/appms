@@ -32,5 +32,8 @@
     </div>
 }
 @if(tab != ''){
-    <ng-container class="modal" *ngComponentOutlet="selectedComponent()"></ng-container>
+    <div class="modal">
+    <mat-icon class="close-button" fontIcon="close" (click)="closeModal()"></mat-icon>
+    <ng-container *ngComponentOutlet="selectedComponent()"></ng-container>
+    </div>
 }
