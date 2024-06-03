@@ -1,9 +1,14 @@
 <app-toolbar></app-toolbar>
 <div class="next-appointment">
+    
+    @if(nextAppointment){
     <p>Next appointment</p>
-    <p>{{nextAppointment?.appointment_time}}</p>
-    <p>{{nextAppointment?.name}} {{nextAppointment?.lastname}}</p>
-
+    <p>{{nextAppointment.appointment_time}}</p>
+    <p>{{nextAppointment.name}} {{nextAppointment.lastname}}</p>
+    }
+    @else{
+        <p>No appointments</p>
+    }
 </div>
 
 <div class="today-appointment">
