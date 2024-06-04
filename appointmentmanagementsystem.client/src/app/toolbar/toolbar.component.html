@@ -27,22 +27,7 @@
         </div>
     }
 </div>
-<!--<button (click)="menuOpen()">Toggle Menu</button>-->
 
-<!--
-<div class="sidenav-container">
-    <div (click)="navClick('account')" class="sidenav-item">
-        <p> <img src="assets/icons/person.svg" alt=""> Account</p>
-    </div>
-    <div (click)="navClick('users')" class="sidenav-item">
-        <mat-icon fontIcon="list"></mat-icon>
-        <p>Users</p>
-    </div>
-    <div (click)="navClick('appointments')" class="sidenav-item">
-        <mat-icon fontIcon="settings"></mat-icon>
-        <p>Appointments</p>
-    </div>
-</div>-->
 
 @if(menu == "user-menu"){
 
@@ -53,6 +38,7 @@
 @if(tab != ''){
 <div class="modal">
     <mat-icon class="close-button" fontIcon="close" (click)="closeModal()"></mat-icon>
-    <ng-container *ngComponentOutlet="selectedComponent()"></ng-container>
+    <ng-container *ngComponentOutlet="selectedComponent()">
+    </ng-container>
 </div>
 }

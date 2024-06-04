@@ -46,7 +46,7 @@ export class UserMainComponent {
     this.router.navigate(['makeappointment']);
   }
 
-  //A desarrollar
+  //Borra y actualiza pagina
   deleteAppointment(appointment:UserAppointment){
     console.log(appointment)
     this.appointmentService.deleteAppointment(appointment).subscribe(() => {

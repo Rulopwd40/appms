@@ -29,7 +29,7 @@ export interface Appointment{
   username:string;
 }
 
-export function difference(date: TodayAppointment[], min: string, max: string) {
+export function difference(date: any[], min: string, max: string) {
 
   let hours = [
     '00:00', '00:30', '01:00', '01:30', '02:00', '02:30',

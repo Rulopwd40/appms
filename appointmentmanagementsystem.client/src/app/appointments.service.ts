@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Appointment, TodayAppointment, UserAppointment } from './models/models';
+import { Appointment, UserAppointment } from './models/models';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -12,6 +12,10 @@ export class AppointmentsService {
   private apiUrl = 'http://localhost:5298/api';
   
   constructor(private http:HttpClient) { }
+
+  getAppointments(): Observable<Appointment[]>{
+    return this.http.get<Appointment[]>(this.apiUrl + '/Appointments');
+  }
 
   getTodayAppointments(date:Date): Observable<any> {
     // Convertir el objeto Date a una cadena en el formato 'YYYY-MM-DD'

@@ -8,6 +8,8 @@ import { AppointmentsComponent } from '../appointments/appointments.component';
 import { AccountComponent } from '../account/account.component';
 import { NgComponentOutlet } from '@angular/common';
 import { CommonModule } from '@angular/common';
+import { AppointmentsService } from '../appointments.service';
+import { Appointment } from '../models/models';
 
 type Tab = 'users' | 'appointments' | 'account';
 
@@ -23,48 +25,28 @@ export class ToolbarComponent {
   isClosed = true;
   menu: string= ""
   tab: Tab | '' = '';
+  isAdmin = false;
   components = {
     '':null,
     users: UsersComponent,
     appointments: AppointmentsComponent,
     account: AccountComponent,
   };
-  constructor(private router:Router){}
+
+  allAppointments?:Appointment[];
+  constructor(private router:Router, private appointmentsService:AppointmentsService){}
   
   ngOnInit(){
     this.username = localStorage.getItem('User');
     this.menu = "";
     this.tab='';
-    console.log(localStorage.getItem('isAdmin'))
+    
   }
   logout(){
     this.router.navigate(['**']),
     localStorage.setItem('Logged','false');
   }
-/*
-  menuOpen(){
-    if(this.menu!=""){
-      this.menu = "";
-    }
-    else{
-      if(localStorage.getItem('isAdmin')=="true"){
-        this.menu = "admin-menu";
-      }
-      else if(localStorage.getItem('isAdmin')=="false"){
-        this.menu = "user-menu";
-      }
-    }
-  }
-  navClick(nav:Tab){
-    this.tab = nav;
-  }
 
-  selectedComponent(){
-    return this.components[this.tab];
-  }
-  closeModal(){
-    this.tab='';
-  }*/
   menuOpen() {
     if (this.menu !== "") {
       this.menu = "";
@@ -88,5 +70,7 @@ export class ToolbarComponent {
   closeModal() {
     this.tab = '';
   }
+
+  
 }
 
