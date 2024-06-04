@@ -1,12 +1,19 @@
-<app-toolbar></app-toolbar>
+<div class="container-usermain">
+    <app-toolbar></app-toolbar>
+    <div class="bg-main">
+        <div class="calendar-hour-container">
+            <mat-calendar #picker class="calendar" (selectedChange)="onDateSelected($event)"></mat-calendar>
+            <div class="hours">
+                @for(hour of availablehours;track hour;let index = $index){
+                <div data-hour="@hour" id="hour_@index" (click)="selectHour(hour)"
+                    [ngClass]="{'hour': true, 'selected': hour === selectedHour}">{{hour}}</div>
+                }
 
-<mat-calendar #picker class="calendar" (selectedChange)="onDateSelected($event)"></mat-calendar>
-<div class="hours">
-        @for(hour of availablehours;track hour;let index = $index){
-            <div  data-hour="@hour" id="hour_@index" (click)="selectHour(hour)" [ngClass]="{'hour': true, 'selected': hour === selectedHour}">{{hour}}</div>
-        }
-    
+            </div>
+        </div>
+        <div class="btn-container">
+            <button class="btn primary-btn"(click)="accept()" [disabled]="!acceptvalid">Accept</button>
+            <button class="btn secondary-btn"(click)="cancel()"> Cancel </button>
+        </div>
+    </div>
 </div>
-
-<button (click)="cancel()"> Cancel </button>
-<button (click)="accept()" [disabled]="!acceptvalid">Accept</button>

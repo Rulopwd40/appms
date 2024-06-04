@@ -7,3 +7,22 @@
     width: 400px;
     height: 500px;
 }
+.container-usermain {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+.bg-main {
+    flex: 1;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    gap: 5rem;
+
+    justify-content: center;
+    align-items: center;
+    background: var(--bg-container-dark);
+    /* Puedes cambiar esto al color que prefieras */
+}

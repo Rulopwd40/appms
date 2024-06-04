@@ -28,8 +28,15 @@ button:hover{
     transform: scale(1.1);
 }
 
-.menu{
+mat-icon{
     cursor: pointer;
+    transition: 0.2s;
+}
+mat-icon:hover{
+    transform: scale(1.1);
+}
+mat-icon:active{
+    transform: scale(0.7);
 }
 .switch-theme{
     cursor: pointer;
@@ -37,30 +44,79 @@ button:hover{
     margin-left: auto;
 
 }
-
+/*
 .sidenav-container{
     background-color: #13131A;
-    height: 100%;
-    width: 300px;
+    height: 500px;
+
+    width: 100%;
     position:absolute;
-    
-}
-.sidenav-item{
+    transition: 0.3s;
+}*/
+.sidenav-container {
+    background-color: #13131A;
+    width: 0;
+    overflow: hidden;
+    position:fixed;
+    height: 100%; /* Ocupa toda la altura de la pantalla 
+    transition: width 0.3s ease, opacity 0.3s ease;*/
+    transition: 0.3s;
+    z-index: 1;
+  }
+  
+  .sidenav-container.closed {
+    width: 0;
+    opacity: 0;
+  }
+  
+  .sidenav-container.opened {
+    width: 250px; /* o el valor que desees */
+    opacity: 1;
+  }
+  
+  .sidenav-item {
     color: white;
+    width: 100%; /* Asegúrate de que los ítems ocupen todo el ancho del contenedor */
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap:10px;
-    border-bottom:2px white solid ;
+    font-weight: bold;
+    gap: 15px;
+    border-bottom: 2px solid white;
+    margin: 0 5px;
     cursor: pointer;
-}
+    padding-left: 10px;
+    box-sizing: border-box; /* Incluye padding y border en el ancho y alto del elemento */
+  }
+  
+  .sidenav-item p {
+    margin: 0;
+    white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
 
 .modal{
-    background-color:#13131A;
-    width: 700px;
-    height: 100px;
+    background-color:#4949da;
+    width: 250px;
+    height: 150px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
 }
 
 .close-button{
     cursor:pointer;
 }
+.sidenav-container.closed {
+    width: 0;
+    /* Otros estilos para el estado cerrado */
+  }
+  
+  .sidenav-container.opened {
+    width: 250px; /* o el valor que desees */
+    /* Otros estilos para el estado abierto */
+  }

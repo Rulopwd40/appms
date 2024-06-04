@@ -1,38 +1,135 @@
+.container-usermain {
+    display: flex;
+    flex-direction: column;
+    /*height: 100vh;*/
+    height: 100%;
+    width: 100%;
+}
+.calendar-hour-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+    height: 75%;
+}
+/*
+.appointments .container label{
+    font-weight: 100;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+}*/
+.bg-main {
+    flex: 1;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: column;
+  /*  gap: 5rem;*/
+    background: var(--bg-container-dark);
+    /* Puedes cambiar esto al color que prefieras */
+}
+
+/*Las horas en sí*/
 .hour{
-    background-color: #373749;
+    background:var(--bg-appointment-dark);
     border-radius: 25%;
     width: 100px;
     height: 100px;
     display: flex;
+    font-size: x-large;
     align-items: center;
     justify-content: center;
     color:white;
     margin: 5px;
+    transition: 0.1s ease-in-out;
+    cursor: pointer;
 }
+.hour:hover{
+    background-color:#4d4d66 ;
+}
+/*Esto es el contenedor de las horas*/
 .hours{
+    align-content: center;
+    justify-content: center;
     border-radius: 15px;
     width: 500px;
-    height: 400px;
-    display:flex;
-    background-color: #13131A;
-    max-width: 500px;
-    max-height: 400px;
-    flex-wrap:wrap;
+    height: 500px;
+    /* height: 400px; */
+    display: flex;
+    background: var(--bg-dark-main);
+    /* max-width: 500px; */
+    /* max-height: 400px; */
+    flex-wrap: wrap;
     box-sizing: border-box;
     padding: 10px;
-    position:absolute; 
-    top:200px;
-    left:600px;
 }
 .selected{
-    box-shadow: inset 0 0 0 2px #ffffff;
+  /*
+    background-color: #4d6657;
+    box-shadow: inset 0 0 0 2px #ffffff;*/
+    background:var(--bg-appointment-dark-hover);
 }
-mat-calendar{
-    position: absolute;
-    top:200px;
-    left:100px;
-    background-color: #13131A;
-    width: 300px;
-    height: 300px;
-    color:white;
+/*Botones*/
+.btn-container {
+  margin: 4vh;
+  margin-top: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.btn {
+  font-family: inherit;
+  border: 1px solid #5C5C85;
+  font-weight: bolder;
+  font-size: 16px;
+  color: #FFFFFF;
+  border-radius: 99px;
+  width: 235px;
+  height: 53px;
+  cursor: pointer;
+}
+.primary-btn{
+  background-color: #5C5C85;
+}
+.secondary-btn{
+  background-color: transparent;
+}
+/* Estilos generales para el calendario */
+.mat-calendar {
+  background: var(--bg-dark-main);
+  width: 40vh;
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 10px;
+  z-index: 0;
+}
+::ng-deep .mat-calendar .mat-calendar-body-cell-content,
+::ng-deep .mat-calendar .mat-calendar-period-button,
+::ng-deep .mat-calendar .mat-calendar-previous-button,
+::ng-deep .mat-calendar .mat-calendar-next-button,
+::ng-deep .mat-calendar .mat-calendar-body-label,
+::ng-deep .mat-calendar .mat-calendar-body-today,
+::ng-deep .mat-calendar .mat-calendar-table-header,
+::ng-deep .mat-calendar .mat-calendar-table-header th,
+::ng-deep .mat-calendar .mat-calendar-table-header tr,
+::ng-deep .mat-calendar .mat-calendar-header,
+::ng-deep .mat-calendar .mat-calendar-header .mat-calendar-period-button,
+::ng-deep .mat-calendar .mat-calendar-header .mat-calendar-arrow {
+    color: white;
+}
+
+::ng-deep .mat-calendar .mat-calendar-body-today {
+    border-color: white;
+}
+::ng-deep .mat-calendar .mat-calendar-table-header,
+::ng-deep .mat-calendar .mat-calendar-body-cell-content,
+::ng-deep .mat-calendar .mat-calendar-table-header th,
+::ng-deep .mat-calendar .mat-calendar-table-header tr,
+::ng-deep .mat-calendar .mat-calendar-body-label{
+    font-weight:700;
 }

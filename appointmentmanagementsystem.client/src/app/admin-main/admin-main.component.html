@@ -1,20 +1,24 @@
-<app-toolbar></app-toolbar>
-<div class="next-appointment">
-    
-    @if(nextAppointment){
-    <p>Next appointment</p>
-    <p>{{nextAppointment.appointment_time}}</p>
-    <p>{{nextAppointment.name}} {{nextAppointment.lastname}}</p>
-    }
-    @else{
-        <p>No appointments</p>
-    }
-</div>
+<div class="container-usermain">
+    <app-toolbar></app-toolbar>
+    <div class="bg-main">
+        <div class="next-appointment">
 
-<div class="today-appointment">
-    @for(appointment of todayAppointments;track appointment;let index = $index){
-        <p>{{index+1}}</p>
-        <p>{{appointment.appointment_time}}</p>
-        <p>{{appointment.name}} {{appointment.lastname}}</p>
-    }
+            @if(nextAppointment){
+            <p>Next appointment</p>
+            <p>{{nextAppointment.appointment_time}}</p>
+            <p>{{nextAppointment.name}} {{nextAppointment.lastname}}</p>
+            }
+            @else{
+            <p>No appointments</p>
+            }
+        </div>
+
+        <div class="today-appointment">
+            @for(appointment of todayAppointments;track appointment;let index = $index){
+            <p>{{index+1}}</p>
+            <p>{{appointment.appointment_time}}</p>
+            <p>{{appointment.name}} {{appointment.lastname}}</p>
+            }
+        </div>
+    </div>
 </div>

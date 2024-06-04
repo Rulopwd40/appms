@@ -72,3 +72,5 @@ AppointmentManagementSystem.Server/.env
 node_modules
 AppointmentManagementSystem.Server/appsettings.json
 AppointmentManagementSystem.Server/appsettings.json
+/AppointmentManagementSystem.Server
+*.json
