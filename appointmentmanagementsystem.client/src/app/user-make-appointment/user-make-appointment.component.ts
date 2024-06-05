@@ -55,8 +55,8 @@ accept(){
     date: this.date,
     appointment_time: this.selectedHour + ':00', 
     username: username,
+    state: true,
   };
-  console.log(appointment);
   this.appointmentsService.addAppointment(appointment).subscribe(
     response => {
       alert('Cita registrada con éxito');

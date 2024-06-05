@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Pomelo.EntityFrameworkCore.MySql.Infrastructure;
 using Microsoft.Extensions.DependencyInjection;
 using AppointmentManagementSystem.Server.Models;
+using AppointmentManagementSystem.Server.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +27,10 @@ builder.Services.AddCors(options =>
 // Agregar servicios de controladores
 builder.Services.AddControllers();
 
+// Agregar AppointmentService y ScheduledAppointmentService
+builder.Services.AddScoped<AppointmentService>();
+builder.Services.AddHostedService<ScheduledAppointmentService>();
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -42,5 +47,21 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
 });
+
+// Ejecutar la actualización al iniciar
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var appointmentService = services.GetRequiredService<AppointmentService>();
+        appointmentService.UpdatePastAppointmentsAsync().Wait();
+    }
+    catch (Exception ex)
+    {
+        var logger = services.GetRequiredService<ILogger<Program>>();
+        logger.LogError(ex, "An error occurred while updating past appointments.");
+    }
+}
 
 app.Run();

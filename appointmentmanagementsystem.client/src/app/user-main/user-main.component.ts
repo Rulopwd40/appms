@@ -48,7 +48,6 @@ export class UserMainComponent {
 
   //Borra y actualiza pagina
   deleteAppointment(appointment:UserAppointment){
-    console.log(appointment)
     this.appointmentService.deleteAppointment(appointment).subscribe(() => {
     this.ngOnInit();
   })};

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AppointmentsService } from '../appointments.service';
 import { Appointment } from '../models/models';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-appointments',
@@ -11,23 +12,18 @@ export class AppointmentsComponent {
   
   isAdmin=false;
   allAppointments: Appointment[] = [];
-  constructor(private appointmentsService:AppointmentsService){}
+  constructor(private appointmentsService:AppointmentsService,private datePipe:DatePipe){}
 
   ngOnInit(){
     this.isAdmin = (localStorage.getItem('isAdmin') == 'true');
+    this.getAppointments()
   }
   getAppointments(){
     if(this.isAdmin){
      this.appointmentsService.getAppointments().subscribe(appointments =>{
-      appointments.sort((a, b) => {
-        const [hoursA, minutesA] = a.appointment_time.split(':').map(Number);
-        const [hoursB, minutesB] = b.appointment_time.split(':').map(Number);
-  
-        const totalMinutesA = hoursA * 60 + minutesA;
-        const totalMinutesB = hoursB * 60 + minutesB;
-  
-        return totalMinutesA - totalMinutesB;
-      });
+      appointments.map(appointment =>
+        appointment.date= appointment.date.toString().split('T')[0]
+      )
       this.allAppointments=appointments;
      });
     }

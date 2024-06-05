@@ -71,6 +71,6 @@ export class ToolbarComponent {
     this.tab = '';
   }
 
-  
+
 }
 

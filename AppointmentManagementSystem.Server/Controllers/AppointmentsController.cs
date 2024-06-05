@@ -16,9 +16,23 @@ public class AppointmentsController : ControllerBase{
         _context = context;
     }
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Appointment>>> GetAppointments()
+    public ActionResult<IEnumerable<Appointment>> GetAppointments()
     {
-        return await _context.Appointments.ToListAsync();
+        var appointments = _context.Appointments
+        .Join(
+            _context.User,
+            appointment => appointment.id_user,
+            user => user.id_user,
+            (appointment, user) => new AllAppointmentsResponse
+            {
+                id_appointment = appointment.id_appointment,
+                date = appointment.date,
+                appointment_time = appointment.appointment_time,
+                username = user.username,
+            })
+        .ToList();
+
+        return Ok(appointments.Count > 0 ? appointments : new List<AllAppointmentsResponse>());
     }
 
     [HttpPost]
@@ -40,6 +54,7 @@ public class AppointmentsController : ControllerBase{
         date = appointmentPost.date,
         appointment_time = appointmentPost.appointment_time,
         id_user = user_id,
+        state= true,
     };
     _context.Appointments.Add(newAppointment);
     await _context.SaveChangesAsync();
@@ -52,7 +67,7 @@ public class AppointmentsController : ControllerBase{
 public IActionResult getTodayAppointments(DateTime date)
 {
     var appointments = _context.Appointments
-        .Where(d => d.date == date)
+        .Where(d => d.date == date && d.state == true)
         .Join(
             _context.User,
             appointment => appointment.id_user,
@@ -74,7 +89,7 @@ public IActionResult getTodayAppointments(DateTime date)
         if(user == null){
             return NotFound("Usuario No existe");
         }
-        var appointments = _context.Appointments.Where(d => d.id_user == user.id_user).ToList();
+        var appointments = _context.Appointments.Where(d => d.id_user == user.id_user && d.state).ToList();
         if(appointments == null || appointments.Count==0){
             return Ok(appointments);
         }
@@ -82,19 +97,28 @@ public IActionResult getTodayAppointments(DateTime date)
     }
 
     [HttpDelete("delete")]
-public async Task<IActionResult> DeleteAppointment([FromQuery] DateTime date, [FromQuery] TimeSpan appointment_time)
-{
-    var appointment = await _context.Appointments
-        .FirstOrDefaultAsync(a => a.date == date && a.appointment_time == appointment_time);
-
-    if (appointment == null)
+    public async Task<IActionResult> DeleteAppointment([FromQuery] DateTime date, [FromQuery] TimeSpan appointment_time)
     {
-        return NotFound(new { message = "Appointment not found" });
+        try
+        {
+            var appointment = await _context.Appointments
+                .FirstOrDefaultAsync(a => a.date == date && a.appointment_time == appointment_time);
+
+            if (appointment == null)
+            {
+                return NotFound(new { message = "Appointment not found" });
+            }
+
+            appointment.state = false;
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+        catch (Exception ex)
+        {
+            // Log the exception (not shown here)
+            return StatusCode(500, new { message = "An error occurred while processing your request.", details = ex.Message });
+        }
     }
-
-    _context.Appointments.Remove(appointment);
-    await _context.SaveChangesAsync();
-
-    return NoContent();
 }
-}
+;

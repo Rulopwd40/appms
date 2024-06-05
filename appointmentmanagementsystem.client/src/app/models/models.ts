@@ -10,6 +10,7 @@ export interface UserC{
 }
 export interface TodayAppointment{
   appointment_time:string;
+  state:boolean;
 }
 export interface TodayUserAppointment{
   appointment_time:string;
@@ -24,9 +25,10 @@ export interface UserAppointment{
 
 export interface Appointment{
   id_appointment?:number;
-  date:Date;
+  date:Date | string;
   appointment_time:string;
   username:string;
+  state: boolean;
 }
 
 export function difference(date: any[], min: string, max: string) {

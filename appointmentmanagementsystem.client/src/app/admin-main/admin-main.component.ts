@@ -54,8 +54,6 @@ export class AdminMainComponent {
       // Assign the first appointment to nextAppointment and the rest to todayAppointments
       [this.nextAppointment, ...this.todayAppointments] = todayAppointments;
   
-      console.log('Next appointment: ' + this.nextAppointment.name);
-      console.log(this.todayAppointments);
     }, error => {
       console.error('Error fetching today\'s appointments', error);
     });

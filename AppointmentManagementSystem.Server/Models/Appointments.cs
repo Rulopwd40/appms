@@ -11,7 +11,7 @@ namespace AppointmentManagementSystem.Server.Models
 
         required public int id_user {get; set;}
 
-        
+        required public Boolean state {get; set;}        
     }
     public class AppointmentPost{
         required public DateTime date {get;set;}
@@ -29,6 +29,8 @@ namespace AppointmentManagementSystem.Server.Models
          required public DateTime date {get;set;}
 
         required public TimeSpan appointment_time{ get; set;}
+
+        required public Boolean state {get;set;}
     }
 
     public class AppointmentUserResponse{
@@ -36,4 +38,14 @@ namespace AppointmentManagementSystem.Server.Models
         required public string name{get;set;}
         required public string lastname{get;set;}
     }
+
+    public class AllAppointmentsResponse{
+        [Key]public int id_appointment {get;set;}
+        required public DateTime date {get;set;}
+
+        required public TimeSpan appointment_time{ get; set;}
+
+        required public string username {get; set;}
+    }
+
 }
