@@ -54,7 +54,6 @@ public class AppointmentsController : ControllerBase{
         date = appointmentPost.date,
         appointment_time = appointmentPost.appointment_time,
         id_user = user_id,
-        state= true,
     };
     _context.Appointments.Add(newAppointment);
     await _context.SaveChangesAsync();
@@ -67,7 +66,7 @@ public class AppointmentsController : ControllerBase{
 public IActionResult getTodayAppointments(DateTime date)
 {
     var appointments = _context.Appointments
-        .Where(d => d.date == date && d.state == true)
+        .Where(d => d.date == date)
         .Join(
             _context.User,
             appointment => appointment.id_user,
@@ -89,7 +88,7 @@ public IActionResult getTodayAppointments(DateTime date)
         if(user == null){
             return NotFound("Usuario No existe");
         }
-        var appointments = _context.Appointments.Where(d => d.id_user == user.id_user && d.state).ToList();
+        var appointments = _context.Appointments.Where(d => d.id_user == user.id_user).ToList();
         if(appointments == null || appointments.Count==0){
             return Ok(appointments);
         }
@@ -109,7 +108,7 @@ public IActionResult getTodayAppointments(DateTime date)
                 return NotFound(new { message = "Appointment not found" });
             }
 
-            appointment.state = false;
+            _context.Appointments.Remove(appointment);
             await _context.SaveChangesAsync();
 
             return NoContent();

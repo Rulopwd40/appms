@@ -8,5 +8,9 @@ namespace AppointmentManagementSystem.Server.Models
         public DbSet<User> User { get; set; }
         public DbSet<Appointment> Appointments { get; set;}
 
+        internal void Delete(Appointment appointment)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

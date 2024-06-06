@@ -1,6 +1,9 @@
 <div class="container-usermain">
+    
     <app-toolbar></app-toolbar>
+    
     <div class="bg-main">
+        <h1 class="title">Make an appointment</h1>
         <div class="calendar-hour-container">
             <mat-calendar #picker class="calendar" (selectedChange)="onDateSelected($event)"></mat-calendar>
             <div class="hours">

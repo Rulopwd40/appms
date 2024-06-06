@@ -33,12 +33,17 @@ cancel(){
   this.router.navigate(['user-home']);
 }
 onDateSelected(date:any){
-  let appointments: TodayAppointment[] = [];
+  if(!(date < new Date())){
   this.date=date;
   this.appointmentsService.getTodayAppointments(date).subscribe((appointments:TodayAppointment[]) => {
     this.availablehours=difference(appointments,'08:00:00','16:00:00');
-  });
 
+
+  });
+  }
+  else{
+    this.availablehours=[];
+  }
 }
 selectHour(hour:string){
   this.selectedHour=hour;
@@ -55,7 +60,6 @@ accept(){
     date: this.date,
     appointment_time: this.selectedHour + ':00', 
     username: username,
-    state: true,
   };
   this.appointmentsService.addAppointment(appointment).subscribe(
     response => {

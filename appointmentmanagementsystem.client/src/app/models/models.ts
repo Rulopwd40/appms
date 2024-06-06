@@ -28,11 +28,10 @@ export interface Appointment{
   date:Date | string;
   appointment_time:string;
   username:string;
-  state: boolean;
 }
 
 export function difference(date: any[], min: string, max: string) {
-
+  
   let hours = [
     '00:00', '00:30', '01:00', '01:30', '02:00', '02:30',
     '03:00', '03:30', '04:00', '04:30', '05:00', '05:30',
