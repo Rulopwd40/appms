@@ -28,10 +28,10 @@ export class UserMainComponent {
     }
     
     this.appointmentService.getUserAppointments(this.username).subscribe((appointments: UserAppointment[]) => {
-      this.appointments = appointments;
-      
-      this.appointments.map( (appointment: UserAppointment) => 
-        appointment.date=this.modifyDate(appointment.date))
+      this.appointments = appointments.map((appointment: UserAppointment) => {
+        appointment.date = this.modifyDate(appointment.date);
+        return appointment;
+      }).filter(appointment => new Date(appointment.date) > new Date());
     });
     
   }
