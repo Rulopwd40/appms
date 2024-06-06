@@ -24,6 +24,27 @@ export class AppointmentsComponent {
       appointments.map(appointment =>
         appointment.date= appointment.date.toString().split('T')[0]
       )
+      appointments.sort((a, b) => {
+        const dateA = new Date(a.date);
+        const dateB = new Date(b.date);
+      
+        if (dateA > dateB) {
+          return -1;
+        } else if (dateA < dateB) {
+          return 1;
+        } else {
+          const timeA = a.appointment_time;
+          const timeB = b.appointment_time;
+      
+          if (timeA > timeB) {
+            return -1;
+          } else if (timeA < timeB) {
+            return 1;
+          } else {
+            return 0;
+          }
+        }
+      });
       this.allAppointments=appointments;
      });
     }
