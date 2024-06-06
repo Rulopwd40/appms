@@ -58,6 +58,8 @@ mat-icon:active{
     width: 0;
     overflow: hidden;
     position:fixed;
+    display: flex;
+    flex-direction: column;
     height: 100%; /* Ocupa toda la altura de la pantalla 
     transition: width 0.3s ease, opacity 0.3s ease;*/
     transition: 0.3s;
@@ -72,6 +74,7 @@ mat-icon:active{
   .sidenav-container.opened {
     width: 250px; /* o el valor que desees */
     opacity: 1;
+    gap: 1rem;
   }
   
   .sidenav-item {

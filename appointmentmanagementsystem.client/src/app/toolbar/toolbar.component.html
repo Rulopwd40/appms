@@ -15,14 +15,17 @@
     }
     @if(menu == "admin-menu"){
         <div (click)="navClick('account')" class="sidenav-item">
-            <p> <img src="assets/icons/person.svg" alt=""> Account</p>
+            <img src="assets/icons/person.svg" alt="account">
+            <p> Account</p>
         </div>
         <div (click)="navClick('users')" class="sidenav-item">
-            <mat-icon fontIcon="list"></mat-icon>
+            <!--<mat-icon fontIcon="list"></mat-icon>-->
+            <img src="assets/icons/logs.svg" alt="account">
             <p>Users</p>
         </div>
         <div (click)="navClick('appointments')" class="sidenav-item">
-            <mat-icon fontIcon="settings"></mat-icon>
+            <!--<mat-icon fontIcon="settings"></mat-icon>-->
+            <img src="assets/icons/config.svg" alt="account">
             <p>Appointments</p>
         </div>
     }

@@ -74,3 +74,4 @@ AppointmentManagementSystem.Server/appsettings.json
 AppointmentManagementSystem.Server/appsettings.json
 /AppointmentManagementSystem.Server
 *.json
+*.json

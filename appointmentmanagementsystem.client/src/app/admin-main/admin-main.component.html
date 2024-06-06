@@ -1,16 +1,17 @@
 <div class="container-usermain">
     <app-toolbar></app-toolbar>
     <div class="bg-main">
-        <div class="next-appointment">
-
+        <div class="next-appointment-container">
+            <div class="next-appointment">
             @if(nextAppointment){
-            <p>Next appointment</p>
-            <p>{{nextAppointment.appointment_time}}</p>
+            <h2 class="next-appointment-title">Next appointment</h2>
+            <h3 class="next-appointment-hour">{{nextAppointment.appointment_time}}</h3>
             <p>{{nextAppointment.name}} {{nextAppointment.lastname}}</p>
             }
             @else{
             <p>No appointments</p>
             }
+        </div>
         </div>
 
         <div class="today-appointment">
