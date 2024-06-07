@@ -12,7 +12,7 @@
     justify-content: center;
     padding: 25px;
     gap: 15px;
-    background: #191A2C;
+    background: var(--bg-container-dark1);
 }
 small{
     display: block;
@@ -99,7 +99,7 @@ input:focus {
     cursor: pointer;
 }
 .primary-btn{
-    background-color: #5C5C85;
+    background:var(--bg-btn-primary-dark);
 }
 .secondary-btn{
     background-color: transparent;
