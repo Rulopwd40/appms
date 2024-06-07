@@ -1,1 +1,13 @@
-<p>users works!</p>
+
+<div class="admins">
+    <label>Admins:</label>
+    @for (admin of Admins; track $index) {
+        <p>{{admin.id_user}} {{admin.username}} {{admin.name}} {{admin.lastname}} {{admin.email}}</p>
+    }
+</div>
+<div class="users">
+    <label>Users:</label>
+    @for (user of Users; track $index) {
+        <p>{{user.id_user}} {{user.username}} {{user.name}} {{user.lastname}} {{user.email}}</p>
+    }
+</div>

@@ -8,6 +8,18 @@ export interface UserC{
     email:any;
     password: any;
 }
+
+export interface User{
+  id_user?:number;
+  username:string;
+  password:string;   
+  name:string;
+  lastname:string;
+  is_admin:boolean;
+  email:string;
+}
+
+
 export interface TodayAppointment{
   appointment_time:string;
   state:boolean;
@@ -53,13 +65,4 @@ export function difference(date: any[], min: string, max: string) {
   let availableHours = filteredHours.filter(x => !appointmentTimes.includes(x));
 
   return availableHours;
-}
-export interface User{
-  id_user?: number;
-  username: string;
-  password: string;
-  email: string;
-  name: string;
-  lastname: string;
-  is_admin: boolean;
 }
