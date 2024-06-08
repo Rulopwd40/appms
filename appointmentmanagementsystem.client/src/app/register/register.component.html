@@ -8,14 +8,7 @@
     <input [ngClass]="{'error-container': fieldValidation('password', registerform.get('password')?.touched)}"
       placeholder="Password" type="password" formControlName="password">
     <small *ngIf="errorMessages['password']">{{ errorMessages['password'] }}</small>
-    <!--
-    <input placeholder="Password" type="password" formControlName="password">
-    <div *ngIf="registerform.get('password')?.invalid && registerform.get('password')?.touched">
-      <small *ngIf="registerform.get('password')?.errors?.['required']">Password is required.</small>
-      <small *ngIf="registerform.get('password')?.errors?.['minlength']">Password must be at least 6 characters
-        long.</small>
-    </div>
-    -->
+ 
 
     <input
       [ngClass]="{'error-container': fieldValidation('confirmPassword', registerform.get('confirmPassword')?.touched)}"

@@ -25,4 +25,10 @@ namespace AppointmentManagementSystem.Server.Models
         public string lastname { get; set; }
         public bool is_admin { get; set; }
     }
+
+    public class ChangePasswordRequest
+    {
+        public string username {get;set;}
+        public string password {get;set;}
+    }
 }

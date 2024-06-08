@@ -1,6 +1,21 @@
     <div class="popup">
         <div class="popup-content">
             <div class="popup-title">
-                <p>Account Works</p>
-                </div>
+                <p>Change Password:</p>
+                <form [formGroup]="changePassForm" (ngSubmit)="changePassword()">
+                    <input [ngClass]="{'error-container': fieldValidation('password', changePassForm.get('password')?.touched)}"
+                        placeholder="Password" type="password" formControlName="password">
+                    <small *ngIf="errorMessages['password']">{{ errorMessages['password'] }}</small>
+ 
+
+                    <input [ngClass]="{'error-container': fieldValidation('confirmPassword', changePassForm.get('confirmPassword')?.touched)}"
+                    placeholder="Confirm Password" type="password" formControlName="confirmPassword">
+                    <div *ngIf="fieldValidation('confirmPassword', changePassForm.get('confirmPassword')?.touched)">
+                    <small *ngIf="errorMessages['confirmPassword']">{{ errorMessages['confirmPassword'] }}</small>
+                    </div>
+                    <div class="btn-container">
+                        <button class="btn primary-btn" type="submit" [disabled]="changePassForm.invalid">Change Password!</button>
+                    </div>
+                </form>
+            </div>
     </div>

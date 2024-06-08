@@ -42,5 +42,22 @@ public class UsersController : ControllerBase
                 is_admin = user.is_admin
             });
     }
-    
+    [HttpPost("changepassword")]
+
+    public async Task<IActionResult> ChangePassword([FromBody] ChangePasswordRequest request)
+    {
+        var user = await _context.User
+            .FirstOrDefaultAsync(u => u.username == request.username);
+
+        if (user == null)
+        {
+            return NotFound(new { message = "User not found" });
+        }
+
+        user.password= request.password;
+        await _context.SaveChangesAsync();
+
+        return Ok(new { message = "Password changed successfully" });
+    }
+
 }

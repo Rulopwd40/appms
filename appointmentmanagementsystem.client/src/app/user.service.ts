@@ -27,4 +27,8 @@ export class UserService {
     console.log(user);
     return this.http.post<User>(this.apiUrl + '/Users/login',user);
   }
+
+  changePassword(payload:any){
+    return this.http.post<any>(this.apiUrl + '/Users/changepassword', payload)
+  }
 }

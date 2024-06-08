@@ -18,7 +18,6 @@ import { AccountComponent } from './account/account.component';
     AppComponent,
     UsersComponent,
     AppointmentsComponent,
-    AccountComponent,
   ],
   imports: [
     BrowserModule, HttpClientModule,
