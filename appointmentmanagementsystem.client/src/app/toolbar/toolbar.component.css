@@ -101,18 +101,23 @@ mat-icon:active{
   
 
 .modal{
-    background-color:#4949da;
-    width: 250px;
-    height: 150px;
+    background:var(--bg-dark-main);
     position: absolute;
+    display: flex;
+    flex-direction: column;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1;
+    border-radius: 5px;
+    box-shadow:rgba(0, 0, 0, 0.247) 5px 5px 10px;
 }
 
 .close-button{
     cursor:pointer;
+    align-self: flex-end;
+    margin: 5px;
+    color: white;
 }
 .sidenav-container.closed {
     width: 0;

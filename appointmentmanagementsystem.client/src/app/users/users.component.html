@@ -1,13 +1,30 @@
-
-<div class="admins">
-    <label>Admins:</label>
-    @for (admin of Admins; track $index) {
-        <p>{{admin.id_user}} {{admin.username}} {{admin.name}} {{admin.lastname}} {{admin.email}}</p>
-    }
-</div>
-<div class="users">
-    <label>Users:</label>
-    @for (user of Users; track $index) {
-        <p>{{user.id_user}} {{user.username}} {{user.name}} {{user.lastname}} {{user.email}}</p>
-    }
+<div class="container-modal">
+    <table class="admins container-simple">
+        <tr>
+            <th>Admins: </th>
+        </tr>
+        @for (admin of Admins; track $index) {
+        <tr>
+            <td class="first">{{admin.id_user}}</td>
+            <td class="second">{{admin.username}}</td>
+            <td class="third">{{admin.name}}</td>
+            <td>{{admin.lastname}}</td>
+            <td>{{admin.email}}</td>
+        </tr>
+        }
+    </table>
+    <table class="users container-simple">
+        <tr>
+            <th>Users: </th>
+        </tr>
+        @for (user of Users; track $index) {
+        <tr>
+            <td class="first">{{user.id_user}}</td>
+            <td class="second">{{user.username}}</td>
+            <td class="third">{{user.name}}</td>
+            <td>{{user.lastname}}</td>
+            <td>{{user.email}}</td>
+        </tr>
+        }
+    </table>
 </div>

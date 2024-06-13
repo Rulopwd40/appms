@@ -1,5 +1,12 @@
-@for(appointment of allAppointments; track $index){
-    <div>
-        <p>{{appointment.id_appointment}} {{appointment.username}} {{appointment.date}} {{appointment.appointment_time}}</p>
-    </div>
-}
+<div class="container-modal">
+    <table class="container-simple">
+        @for(appointment of allAppointments; track $index){
+        <tr>
+            <td class="first">{{appointment.id_appointment}}</td>
+            <td class="second">{{appointment.username}}</td>
+            <td>{{appointment.date}}</td>
+            <td>{{appointment.appointment_time}}</td>
+        </tr>
+        }
+    </table>
+</div>
