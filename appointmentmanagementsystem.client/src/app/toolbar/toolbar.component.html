@@ -31,14 +31,10 @@
     }
 </div>
 
+<div id="dark-overlay" class="dark-overlay" *ngIf="isPopupVisible" (click)="showPopup()"></div>
 
-@if(menu == "user-menu"){
-
-}
-@if(menu == "admin-menu"){
-
-}
 @if(tab != ''){
+
 <div class="modal">
     <mat-icon class="close-button" fontIcon="close" (click)="closeModal()"></mat-icon>
     <ng-container *ngComponentOutlet="selectedComponent()">

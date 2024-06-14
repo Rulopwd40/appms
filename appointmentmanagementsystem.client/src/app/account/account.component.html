@@ -1,7 +1,6 @@
+<!--<div id="dark-overlay" *ngIf="isPopupVisible" (click)="hidePopup()"></div>-->
     <div class="popup">
-        <div class="popup-content">
-            <div class="popup-title">
-                <p>Change Password:</p>
+                <h2>Change Password:</h2>
                 <form [formGroup]="changePassForm" (ngSubmit)="changePassword()">
                     <input [ngClass]="{'error-container': fieldValidation('password', changePassForm.get('password')?.touched)}"
                         placeholder="Password" type="password" formControlName="password">
@@ -17,5 +16,5 @@
                         <button class="btn primary-btn" type="submit" [disabled]="changePassForm.invalid">Change Password!</button>
                     </div>
                 </form>
-            </div>
+        
     </div>

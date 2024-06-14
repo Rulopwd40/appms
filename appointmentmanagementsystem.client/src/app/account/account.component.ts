@@ -15,14 +15,20 @@ import { UserService } from '../user.service';
 
 export class AccountComponent {
   errorMessages: { [key: string]: string } = {};
-
+  isPopupVisible: boolean = false;
 changePassForm= new FormGroup({
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
    confirmPassword: new FormControl('', [Validators.required, this.passwordMatchValidator.bind(this)]),
 })
 
 constructor(private userService:UserService){}
+showPopup() {
+  this.isPopupVisible = true;
+}
 
+hidePopup() {
+  this.isPopupVisible = false;
+}
 passwordMatchValidator(control: FormControl): { [s: string]: boolean } | null {
   if (this.changePassForm) {
     return control.value === this.changePassForm.get('password')?.value ? null : { passwordMismatch: true };

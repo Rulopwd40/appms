@@ -24,6 +24,7 @@ export class ToolbarComponent {
   username: any;
   isClosed = true;
   menu: string= ""
+  isPopupVisible: boolean = false;
   tab: Tab | '' = '';
   isAdmin = false;
   components = {
@@ -35,7 +36,15 @@ export class ToolbarComponent {
 
   allAppointments?:Appointment[];
   constructor(private router:Router, private appointmentsService:AppointmentsService){}
-  
+  showPopup() {
+    this.isPopupVisible = true;
+    console.log(this.isPopupVisible);
+  }
+
+  hidePopup() {
+    this.isPopupVisible = false;
+    console.log(this.isPopupVisible);
+  }
   ngOnInit(){
     this.username = localStorage.getItem('User');
     this.menu = "";
@@ -50,12 +59,18 @@ export class ToolbarComponent {
   menuOpen() {
     if (this.menu !== "") {
       this.menu = "";
+      this.hidePopup();
+      if(this.tab !== ""){
+        this.tab = "";
+      }
     } else {
       if (localStorage.getItem('isAdmin') === "true") {
         this.menu = "admin-menu";
       } else if (localStorage.getItem('isAdmin') === "false") {
         this.menu = "user-menu";
       }
+      this.showPopup();
+
     }
   }
 
@@ -68,9 +83,7 @@ export class ToolbarComponent {
   }
 
   closeModal() {
-    this.tab = '';
+    this.tab = "";
   }
-
-
 }
 
