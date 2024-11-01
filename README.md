@@ -27,4 +27,6 @@ dotnet run
    ```
 ng serve
 ```
+  Se debe tener en cuenta la creación de las tablas de la base de datos en MySQL las cuales se encuentran en la carpeta Dump20240526
+
   
